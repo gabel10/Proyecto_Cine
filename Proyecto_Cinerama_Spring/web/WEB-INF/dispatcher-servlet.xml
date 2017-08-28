@@ -19,8 +19,10 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="index.htm">indexController</prop>
+                <prop key="index">indexController</prop>
                 <prop key="home.htm">homeController</prop>
+                <prop key="login.htm">usuarioController</prop>
+                <prop key="check.htm">usuarioController</prop>
             </props>
         </property>
     </bean>
@@ -34,6 +36,7 @@
     The index controller.
     -->
     <bean name="homeController" class="controllers.HomeController"/>
+    <bean name="usuarioController" class="controllers.UsuarioController"/>
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
