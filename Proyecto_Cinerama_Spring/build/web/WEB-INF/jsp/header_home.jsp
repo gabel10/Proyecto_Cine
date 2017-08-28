@@ -25,9 +25,9 @@
             </div>
             <div class="col-sm-3 header_right">
                 <ul class="header_right_box">
-                    <li><img src="<c:url value="/recursos/images/p1.png"/>" alt="" /></li>
+                    <li><img src="<c:url value="/recursos/images/user.png"/>" alt="" /></li>
                     <li>
-                        <p><a href="Vistas/login.htm">Gabriela Rivera</a></p>
+                        <p><a href="Vistas/login.htm">Cesar Achahui</a></p>
                     </li>
                     <li class="last"><i class="edit"> </i></li>
                 </ul>
