@@ -1,0 +1,16 @@
+.screen {
+    display: block;
+    height: 50px;
+    font-size: 30px;
+    font-weight: lighter;
+    background: url('../images/pantalla.png') no-repeat center center;
+    text-align: center;
+    background-size: contain;
+    margin: auto;
+    padding-top: 5px;
+}
+#map-container {
+    background-color: #EEE;
+    margin-bottom: 10px;
+    overflow: auto;
+}
