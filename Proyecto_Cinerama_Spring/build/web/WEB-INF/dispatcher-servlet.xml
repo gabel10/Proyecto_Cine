@@ -24,7 +24,12 @@
                 <prop key="login.htm">usuarioController</prop>
                 <prop key="registro.htm">usuarioController</prop>
                 <prop key="confirmacion_registro.htm">usuarioController</prop>
-                <prop key="menu.htm">usuarioController</prop>
+                <prop key="menu.htm">usuarioController</prop>                
+                <!-- Pelicula -->
+                <prop key="index_peliculas.htm">peliculaController</prop>
+                <prop key="agregar_pelicula.htm">peliculaController</prop>
+                <prop key="modificar_pelicula.htm">peliculaController</prop>
+                <prop key="detalle_pelicula.htm">peliculaController</prop>
             </props>
         </property>
     </bean>
@@ -39,6 +44,8 @@
     -->
     <bean name="homeController" class="controllers.HomeController"/>
     <bean name="usuarioController" class="controllers.UsuarioController"/>
+    <bean name="peliculaController" class="controllers.PeliculaController"/>
+    
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />

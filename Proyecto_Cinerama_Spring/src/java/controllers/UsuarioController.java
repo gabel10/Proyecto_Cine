@@ -35,6 +35,7 @@ public class UsuarioController extends Conexion{
         }
         return v;
     }
+        
     @RequestMapping("menu.htm")
     public ModelAndView menu(HttpServletRequest request){
         ModelAndView v = new ModelAndView();
