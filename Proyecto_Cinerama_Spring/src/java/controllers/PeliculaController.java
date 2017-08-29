@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import models.Pelicula;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +16,7 @@ public class PeliculaController {
     @RequestMapping("index_peliculas.htm")
     public ModelAndView index_peliculas(){
         ModelAndView v = new ModelAndView();
+        v.addObject("datos", new Pelicula().getListaPeliculas());
         v.setViewName("administrador/mantenimiento_pelicula/index_peliculas");
         return v;
     }

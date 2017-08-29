@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,6 +59,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach items="${datos}" var="dato">
+                                            <tr>
+                                                <td>${dato.get("_id")}</td>
+                                                <td>${dato.get("titulo")}</td>
+                                                <td>${dato.get("fechaestreno")}</td>
+                                                <td>${dato.get("duracion")}</td>
+                                                <td>
+                                                    <a id="${dato.get("_id")}"type="button" class="btn btn-warning" onclick="fnEditar(this)">Editar</a>
+                                                    <a id="${dato.get("_id")}" type="button" class="btn btn-info" onclick="fnverDetalles(this)">Ver Detalles</a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -69,5 +83,14 @@
                 </div>
             </div>
         </div>
+        <script>
+        
+            function fnEditar(comp){
+                 location.href="modificar_pelicula.htm?id="+comp.id;
+            }
+            function fnverDetalles(comp){
+                 location.href="detalle_pelicula.htm?id="+comp.id;
+            }
+        </script>
     </body>
 </html>
