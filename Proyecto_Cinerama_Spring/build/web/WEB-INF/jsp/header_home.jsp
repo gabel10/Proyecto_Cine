@@ -27,7 +27,7 @@
                 <ul class="header_right_box">
                     <li><img src="<c:url value="/recursos/images/user.png"/>" alt="" /></li>
                     <li>
-                        <p><a href="login.htm">Cesar Achahui</a></p>
+                        <p><a href="login.htm">Iniciar Sesión</a></p>
                     </li>
                     <li class="last"><i class="edit"> </i></li>
                 </ul>

@@ -47,12 +47,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-6 login-left">
                         <h3>Nuevo Usuario</h3>
                         <p>Creando una cuenta, usted podrá acceder a muchos beneficios del cine, como promociones, descuentos. Ademas usted podrá verificar sus visitas como comprar entradas a precios exclusivos.</p>
-                        <a class="acount-btn" href="registro.jsp">Crear una Cuenta</a>
+                        <a class="acount-btn" href="registro.htm">Crear una Cuenta</a>
                     </div>
                     <div class="col-md-6 login-right">
                         <h3>Usuarios Registrados</h3>
                         <p>Si ya tienes una cuenta, inicia sesión.</p>
-                        <form action="check.htm" method="POST" name="login">
+                        <form action="login.htm" method="GET" name="login">
                             <div>
                                 <span>Usuario<label>*</label></span>
                                 <input type="text" name="usuario">

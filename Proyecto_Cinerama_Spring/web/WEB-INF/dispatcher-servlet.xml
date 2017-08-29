@@ -22,7 +22,8 @@
                 <prop key="index">indexController</prop>
                 <prop key="home.htm">homeController</prop>
                 <prop key="login.htm">usuarioController</prop>
-                <prop key="check.htm">usuarioController</prop>
+                <prop key="registro.htm">usuarioController</prop>
+                <prop key="menu.htm">usuarioController</prop>
             </props>
         </property>
     </bean>

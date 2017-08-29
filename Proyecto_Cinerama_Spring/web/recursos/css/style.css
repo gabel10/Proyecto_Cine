@@ -1386,7 +1386,15 @@ p.cart {
 
 	font-size:1em;
 }
-.register-top-grid input[type="text"], .register-bottom-grid input[type="text"] {
+.register-top-grid input[type="text"], 
+.register-bottom-grid input[type="text"],
+.register-top-grid input[type="email"],
+.register-top-grid input[type="date"],
+.register-top-grid input[type="tel"],
+.register-bottom-grid input[type="password"],
+.register-top-grid select,
+.register-bottom-grid select
+{
 	border: 1px solid #EEE;
 	outline-color:#FF5B36;
 	width: 96%;

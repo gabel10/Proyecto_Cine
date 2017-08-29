@@ -5,13 +5,10 @@
  */
 package controllers;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import static com.mongodb.client.model.Filters.and;
-import static com.mongodb.client.model.Filters.eq;
+import models.Conexion;
+import java.text.ParseException;
 import javax.servlet.http.HttpServletRequest;
-import org.bson.Document;
+import models.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,9 +20,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  */
 @Controller
 public class UsuarioController extends Conexion{
-    private final MongoClient cliente = crearConexion();
-    private final MongoDatabase database = cliente.getDatabase("dbcinerama");
-    protected final MongoCollection<Document> collection = database.getCollection("usuarios");
+
     private String id;
     private String password;
     
@@ -35,16 +30,61 @@ public class UsuarioController extends Conexion{
         v.setViewName("login");
         id = request.getParameter("id");
         password = request.getParameter("password");
-        if(log_in()){
+        if(id!=null && password!=null){
             
         }
         return v;
     }
-    
-    public boolean log_in(){
-        Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getPassword()))).first();
-        return myDoc != null;
+    @RequestMapping("menu.htm")
+    public ModelAndView menu(HttpServletRequest request){
+        ModelAndView v = new ModelAndView();
+        v.setViewName("administrador/menu");
+        return v;
     }
+    
+    @RequestMapping("registro.htm")
+    public ModelAndView registro(HttpServletRequest request) throws ParseException{
+        String pass1 = request.getParameter("password");
+        String pass2 = request.getParameter("confirmar_password");
+        if(!"".equals(pass1) && pass1.equals(pass2)){
+            Usuario usuario = new Usuario();
+            usuario.setId(request.getParameter("id"));
+            usuario.setContraseña(DigestUtils.sha256Hex(pass1));
+            usuario.setNivel_acceso("cliente");
+            usuario.setNombres(request.getParameter("nombres"));
+            usuario.setApellido_paterno(request.getParameter("apellido_paterno"));
+            usuario.setApellido_materno(request.getParameter("apellido_materno"));
+            usuario.setFecha_nacimiento(request.getParameter("fecha_nacimiento"));
+            usuario.setEmail(request.getParameter("correo_electronico"));
+            usuario.setTelefono(request.getParameter("telefono"));
+            usuario.setDepartamento(request.getParameter("departamento"));
+            usuario.setProvincia(request.getParameter("provincia"));
+            usuario.setDistrito(request.getParameter("distrito"));
+            usuario.setDireccion(request.getParameter("direccion"));
+            usuario.setEstado_civil(request.getParameter("estado_civil"));
+            usuario.setOcupacion(request.getParameter("ocupacion"));
+            usuario.setFecha_afiliacion("");
+            usuario.insertar();
+            return new ModelAndView("registro");
+        }
+        else{
+            ModelAndView v = new ModelAndView();
+            v.setViewName("login");
+            return v;
+        }
+    }
+    
+//    @RequestMapping("registro.htm")
+//    public ModelAndView registro(HttpServletRequest request){
+//        ModelAndView v = new ModelAndView();
+//        v.setViewName("registro");
+//        return v;
+//    }
+//    
+//    private boolean log_in(){
+//        Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getPassword()))).first();
+//        return myDoc != null;
+//    }
 
     /**
      * @return the id
