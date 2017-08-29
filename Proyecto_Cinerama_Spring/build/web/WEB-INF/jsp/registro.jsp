@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <jsp:include page="header_home.jsp"/>  
             <div class="content">
                 <div class="register">
-                    <form name="Registrar" method="post" action="registro.htm">
+                    <form name="Registrar" method="post" action="confirmacion_registro.htm">
                         <div class="register-top-grid">
                             <h3>Información Personal</h3>
                             <div>

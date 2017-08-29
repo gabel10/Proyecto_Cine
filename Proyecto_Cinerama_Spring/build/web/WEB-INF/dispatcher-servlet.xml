@@ -23,6 +23,7 @@
                 <prop key="home.htm">homeController</prop>
                 <prop key="login.htm">usuarioController</prop>
                 <prop key="registro.htm">usuarioController</prop>
+                <prop key="confirmacion_registro.htm">usuarioController</prop>
                 <prop key="menu.htm">usuarioController</prop>
             </props>
         </property>

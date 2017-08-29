@@ -9,6 +9,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
 import org.bson.Document;
 
 /**
@@ -82,7 +84,11 @@ public class Usuario extends Conexion{
         }
         catch(Exception e){            
         }
-        
+    }
+    
+    public boolean Iniciar_Sesion(){
+        Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getContraseña()))).first();
+        return myDoc != null;
     }
 
     public String getId() {

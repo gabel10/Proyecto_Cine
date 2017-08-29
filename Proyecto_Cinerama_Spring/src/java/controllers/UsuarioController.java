@@ -42,8 +42,8 @@ public class UsuarioController extends Conexion{
         return v;
     }
     
-    @RequestMapping("registro.htm")
-    public ModelAndView registro(HttpServletRequest request) throws ParseException{
+    @RequestMapping("confirmacion_registro.htm")
+    public ModelAndView confirmacion_registro(HttpServletRequest request) throws ParseException{
         String pass1 = request.getParameter("password");
         String pass2 = request.getParameter("confirmar_password");
         if(!"".equals(pass1) && pass1.equals(pass2)){
@@ -65,21 +65,21 @@ public class UsuarioController extends Conexion{
             usuario.setOcupacion(request.getParameter("ocupacion"));
             usuario.setFecha_afiliacion("");
             usuario.insertar();
-            return new ModelAndView("registro");
+            return new ModelAndView("confirmacion_registro");
         }
         else{
             ModelAndView v = new ModelAndView();
-            v.setViewName("login");
+            v.setViewName("registro");
             return v;
         }
     }
     
-//    @RequestMapping("registro.htm")
-//    public ModelAndView registro(HttpServletRequest request){
-//        ModelAndView v = new ModelAndView();
-//        v.setViewName("registro");
-//        return v;
-//    }
+    @RequestMapping("registro.htm")
+    public ModelAndView registro(){
+        ModelAndView v = new ModelAndView();
+        v.setViewName("registro");
+        return v;
+    }
 //    
 //    private boolean log_in(){
 //        Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getPassword()))).first();
