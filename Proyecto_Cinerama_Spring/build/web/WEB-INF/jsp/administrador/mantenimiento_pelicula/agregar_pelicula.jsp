@@ -29,7 +29,146 @@
             border: 1px solid #000;
             margin: 10px 5px 0 0;
           }
-        </style>
+        </style>        
+    </head>
+    <body>
+        <div id="wrapper">
+            <jsp:include page="../header_menu.jsp"/>
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <h1 class="page-header">
+                        <small>Mantenimiento Peliculas</small>
+                    </h1>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i></i> Agregar Nueva Pelicula</h3>
+                        </div>
+                        <div class="panel-body">                            
+                            <div class="row">   
+                                <form action="guardar_datos_pelicula.htm" method="POST">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Titulo de la Pelicula</label>
+                                            <input class="form-control" placeholder="Ingrese el titulo de la pelicula" name="titulo">
+                                        </div>
+                                        <div id="generos" class="form-group">
+                                            <label>Genero</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="comedia" type="checkbox" onchange="actualizar_genero()">Comedia                                               </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="suspenso" type="checkbox" onchange="actualizar_genero()">Suspenso
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="terror" type="checkbox" onchange="actualizar_genero()">Terror
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="ciencia_ficcion" type="checkbox" onchange="actualizar_genero()">Ciencia Ficcion
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="animacion" type="checkbox" onchange="actualizar_genero()">Animación
+                                                </label>
+                                            </div>                                       
+                                        </div>
+                                        <div>
+                                            <input id="genero" type="text" name="genero"style="display:none;">                                                
+                                        </div>
+                                        <div class="form-group">
+                                            <label>URL Trailer</label>
+                                            <input class="form-control" placeholder="URL del trailer de la pelicula" name="trailer">
+
+                                        </div> 
+                                        <div class="form-group">
+                                            <label>Pais</label>
+                                            <select class="form-control" name="pais">
+                                                <option>Estados Unidos</option>
+                                                <option>Francia</option>
+                                                <option>España</option>
+                                                <option>Peru</option>
+                                                <option>Japon</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Duracion</label>
+                                                <input id="horas" class="form-control" placeholder="Horas : Minutos" name="duracion">
+                                        </div>
+                                        <div class="form-group"> 
+                                             <label>Fecha Estreno</label><br>
+                                             <input type="date" name="fecha_estreno"> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Sinopsis</label>
+                                            <textarea class="form-control" rows="3" name="sinopsis"></textarea>
+                                        </div>  
+                                    </div>
+                                    
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                              <label>Abrir Imagen de la Pelicula</label>
+                                               <input type="file" id="imagen" name="files[]"/>
+                                                <br />
+                                                <output id="list"></output>                                                                       
+                                        </div>                       
+                                    </div>    
+                                    <div class="col-lg-12">
+                                        <br>
+                                        <div class="form-group">
+                                            <input  class="btn btn-success btn-md" type="submit" value="Guardar"></input>           
+                                            <button type="button" class="btn btn-warning btn-md">Limpiar</button>    
+                                            <button type="button" class="btn btn-danger btn-md">Cancelar</button>   
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            function actualizar_genero(){
+                var generos = document.getElementById("generos").getElementsByTagName("input");
+                var lista_generos = "";
+                for(var i=0;i<generos.length;i++){
+                    if(generos[i].checked){
+                        if(lista_generos != "")
+                            lista_generos = lista_generos + ",";
+                        lista_generos = lista_generos + generos[i].getAttribute("id");
+                        
+                    }                
+                }
+                document.getElementById("genero").value = lista_generos;
+                
+            }
+            function archivo(evt) {
+                var files = evt.target.files; // FileList object
+                // Obtenemos la imagen del campo "file".
+                for (var i = 0, f; f = files[i]; i++) {
+                  //Solo admitimos imágenes.
+                  if (!f.type.match('image.*')) {
+                      continue;
+                  }
+                  var reader = new FileReader();
+                  reader.onload = (function(theFile) {
+                      return function(e) {
+                        // Insertamos la imagen
+                       document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+                      };
+                  })(f);
+                  reader.readAsDataURL(f);
+                }
+            }
+            document.getElementById('imagen').addEventListener('change', archivo, false);
+        </script>   
         <!-- jQuery -->
         <script src="${pageContext.request.contextPath}/recursos/js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
@@ -38,8 +177,5 @@
         <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/raphael.min.js"></script>
         <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/morris.min.js"></script>
         <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/morris-data.js"></script>
-    </head>
-    <body>
-        
     </body>
 </html>

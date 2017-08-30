@@ -24,14 +24,7 @@
         <!-- Custom Fonts -->
         <link href="${pageContext.request.contextPath}/recursos/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link type="image/x-icon" rel="shortcut icon" href="${pageContext.request.contextPath}/recursos/images/favicon.png">
-        <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/recursos/js/jquery.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="${pageContext.request.contextPath}/recursos/js/bootstrap.min.js"></script>
-        <!-- Morris Charts JavaScript -->
-        <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/raphael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/morris.min.js"></script>
-        <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/morris-data.js"></script>
+        
     </head>
     <body>
         <div id="wrapper">
@@ -55,6 +48,7 @@
                                             <th>Nombre</th>
                                             <th>Fecha Estreno</th>
                                             <th>Duracion</th>
+                                            <th>Genero</th>
                                             <th>Operaciones</th>
                                         </tr>
                                     </thead>
@@ -63,8 +57,9 @@
                                             <tr>
                                                 <td>${dato.get("_id")}</td>
                                                 <td>${dato.get("titulo")}</td>
-                                                <td>${dato.get("fechaestreno")}</td>
+                                                <td>${dato.get("fecha_estreno")}</td>
                                                 <td>${dato.get("duracion")}</td>
+                                                <td>${dato.get("genero")}</td>
                                                 <td>
                                                     <a id="${dato.get("_id")}"type="button" class="btn btn-warning" onclick="fnEditar(this)">Editar</a>
                                                     <a id="${dato.get("_id")}" type="button" class="btn btn-info" onclick="fnverDetalles(this)">Ver Detalles</a>
@@ -92,5 +87,14 @@
                  location.href="detalle_pelicula.htm?id="+comp.id;
             }
         </script>
+        
+        <!-- jQuery -->
+        <script src="${pageContext.request.contextPath}/recursos/js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="${pageContext.request.contextPath}/recursos/js/bootstrap.min.js"></script>
+        <!-- Morris Charts JavaScript -->
+        <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/raphael.min.js"></script>
+        <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/morris.min.js"></script>
+        <script src="${pageContext.request.contextPath}/recursos/js/plugins/morris/morris-data.js"></script>
     </body>
 </html>
