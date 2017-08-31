@@ -32,6 +32,7 @@
                 <prop key="modificar_pelicula.htm">peliculaController</prop>
                 <prop key="detalle_pelicula.htm">peliculaController</prop>
                 <prop key="guardar_datos_pelicula.htm">peliculaController</prop>
+                <prop key="modificar_datos_pelicula.htm">peliculaController</prop>
             </props>
         </property>
     </bean>

@@ -5,15 +5,20 @@
  */
 package models;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.model.UpdateOptions;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.tomcat.util.http.fileupload.FileItemIterator;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -53,7 +58,7 @@ public class Pelicula extends Conexion{
         Document datos = new Document();
         Object id_pelicula = getNextSequence("cont_peliculas");
         this.setId(id_pelicula.toString());                
-        datos.append("_id", id_pelicula);
+        datos.append("_id", id_pelicula.toString());
         datos.append("titulo", this.getTitulo());
         datos.append("genero", this.getGenero());
         datos.append("url_trailer", this.getUrl_trailer());
@@ -67,8 +72,45 @@ public class Pelicula extends Conexion{
         }
         catch(Exception e){            
         }
-    }    
+    }  
     
+    public void Actualizar(){
+        Document datos = new Document();              
+        datos.append("_id", this.getId());
+        datos.append("titulo", this.getTitulo());
+        datos.append("genero", this.getGenero());
+        datos.append("url_trailer", this.getUrl_trailer());
+        datos.append("pais", this.getPais());
+        datos.append("duracion", this.getDuracion());
+        datos.append("fecha_estreno",this.getFecha_estreno());
+        datos.append("sinopsis", this.getSinopsis());
+        
+        BasicDBObject query = new BasicDBObject();
+        query.append("_id", this.getId());
+        Bson newDocument = new Document("$set", datos);
+        try {
+            collection.updateOne(query, newDocument,(new UpdateOptions()).upsert(true));
+        } catch (Exception e) {
+        }
+        
+        
+
+        
+    }
+    
+    public Document getPelicula(String id){
+        Document pelicula = null;
+        List<Document> documentos= this.getListaPeliculas();
+        //pelicula = documentos.get(0);
+        for(int i = 0;i<documentos.size();i++){
+            Document p = documentos.get(i);
+            if(p.get("_id").toString().equals(id)){
+                return p;
+            }
+            
+        }
+        return pelicula;
+    }
     public List<Document> getListaPeliculas(){
         List<Document> documentos = (List<Document>) collection.find().into(
 				new ArrayList<Document>());

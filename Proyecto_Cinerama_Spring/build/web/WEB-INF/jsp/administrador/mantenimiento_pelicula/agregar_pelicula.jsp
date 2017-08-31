@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Sinopsis</label>
-                                            <textarea class="form-control" rows="3" name="sinopsis"></textarea>
+                                            <textarea id="sinopsis" class="form-control" rows="3" name="sinopsis"></textarea>
                                         </div>  
                                     </div>
                                     
@@ -122,8 +122,8 @@
                                         <br>
                                         <div class="form-group">
                                             <input  class="btn btn-success btn-md" type="submit" value="Guardar"></input>           
-                                            <button type="button" class="btn btn-warning btn-md">Limpiar</button>    
-                                            <button type="button" class="btn btn-danger btn-md">Cancelar</button>   
+                                            <button type="button" class="btn btn-warning btn-md" onclick="limpiar()">Limpiar</button>    
+                                            <button type="button" class="btn btn-danger btn-md" onclick="cancelar()">Cancelar</button>   
                                         </div>
                                     </div>
                                 </form>
@@ -135,6 +135,22 @@
         </div>
         <script>
             
+            
+            function cancelar(){
+                location.href="index_peliculas.htm";
+            }
+            function limpiar(){
+                var inputs = document.getElementsByTagName("input");                
+                for(var i=0;i<inputs.length;i++){
+                    if(inputs[i].value != "Guardar")
+                        inputs[i].value = "";                      
+                }
+                var generos = document.getElementById("generos").getElementsByTagName("input");
+                for(var i=0;i<inputs.length;i++){
+                    inputs[i].checked = false;                  
+                }
+                document.getElementById("sinopsis").innerHTML = "";
+            }
             function actualizar_genero(){
                 var generos = document.getElementById("generos").getElementsByTagName("input");
                 var lista_generos = "";

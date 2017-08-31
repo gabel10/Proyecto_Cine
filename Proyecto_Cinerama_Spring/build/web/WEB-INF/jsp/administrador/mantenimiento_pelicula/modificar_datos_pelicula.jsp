@@ -38,7 +38,7 @@
                         <div class="panel-heading">
                             <h3 class="panel-title"><i></i> </h3>
                         </div>
-                        <h3>Se guardaron los datos correctamente</h3><br>                        
+                        <h3>Se guardaron los datos modificados</h3><br>                        
                         <label>Id : ${datos.getId()}</label>   <br>                     
                         <label>Titulo : ${datos.getTitulo()}</label><br>                       
                         <label>Genero : ${datos.getGenero()}</label><br>                        

@@ -38,31 +38,16 @@
                         <div class="panel-heading">
                             <h3 class="panel-title"><i></i> </h3>
                         </div>
-                        <h3>Se guardaron los datos correctamente</h3><br>
-                        <div class="form-group">
-                            <label>Id : ${datos.getId()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>Titulo : ${datos.getTitulo()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>Genero : ${datos.getGenero()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>url trailer : ${datos.getUrl_trailer()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>Fecha de Estreno : ${datos.getFecha_estreno()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>Pais : ${datos.getPais()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>Sinopsis : ${datos.getSinopsis()}</label>
-                        </div> 
-                        <div class="form-group">
-                            <label>archivos: ${img}</label>
-                        </div> 
+                        <h3>Se guardaron los datos correctamente</h3><br>                        
+                        <label>Id : ${datos.getId()}</label>   <br>                     
+                        <label>Titulo : ${datos.getTitulo()}</label><br>                       
+                        <label>Genero : ${datos.getGenero()}</label><br>                        
+                        <label>url trailer : ${datos.getUrl_trailer()}</label><br>                         
+                        <label>Fecha de Estreno : ${datos.getFecha_estreno()}</label><br>                         
+                        <label>Pais : ${datos.getPais()}</label><br>                        
+                        <label>Sinopsis : ${datos.getSinopsis()}</label><br>    
+                        <a type="button" class="btn btn-success btn-lg" href="index_peliculas.htm">Aceptar</a><br><br>
+
                     </div>
                 </div>
             </div>

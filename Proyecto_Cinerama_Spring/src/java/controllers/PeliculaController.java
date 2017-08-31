@@ -15,6 +15,7 @@ import org.apache.tomcat.util.http.fileupload.FileItemStream;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.util.Streams;
+import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,8 +39,12 @@ public class PeliculaController {
     }
     
     @RequestMapping("modificar_pelicula.htm")
-    public ModelAndView modificar_pelicula(){
+    public ModelAndView modificar_pelicula(HttpServletRequest request)throws ParseException{
         ModelAndView v = new ModelAndView();
+        String id = request.getParameter("id");
+        Document pelicula = new Pelicula().getPelicula(id);       
+        v.addObject("dato", pelicula);
+        v.addObject("id",id);
         v.setViewName("administrador/mantenimiento_pelicula/modificar_pelicula");
         return v;
     }
@@ -66,6 +71,25 @@ public class PeliculaController {
         pelicula.Insertar();   
         v.addObject("datos",pelicula);
         v.setViewName("administrador/mantenimiento_pelicula/guardar_datos_pelicula");
+        return v;
+    }
+    
+    @RequestMapping("modificar_datos_pelicula.htm")
+    public ModelAndView modificar_datos_pelicula(HttpServletRequest request)throws ParseException, FileUploadException, IOException{
+        ModelAndView v = new ModelAndView();
+        
+        Pelicula pelicula = new Pelicula();
+        pelicula.setId(request.getParameter("id"));
+        pelicula.setTitulo(request.getParameter("titulo"));
+        pelicula.setGenero(request.getParameter("genero"));
+        pelicula.setPais(request.getParameter("pais"));
+        pelicula.setUrl_trailer(request.getParameter("trailer"));
+        pelicula.setDuracion(request.getParameter("duracion"));
+        pelicula.setFecha_estreno(request.getParameter("fecha_estreno"));
+        pelicula.setSinopsis(request.getParameter("sinopsis"));
+        pelicula.Actualizar();
+        v.addObject("datos",pelicula);
+        v.setViewName("administrador/mantenimiento_pelicula/modificar_datos_pelicula");
         return v;
     }
 }
