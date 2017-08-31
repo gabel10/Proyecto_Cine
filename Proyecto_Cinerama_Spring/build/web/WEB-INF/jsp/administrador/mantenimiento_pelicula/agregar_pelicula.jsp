@@ -120,10 +120,33 @@
                                     </div>    
                                     <div class="col-lg-12">
                                         <br>
-                                        <div class="form-group">
-                                            <input  class="btn btn-success btn-md" type="submit" value="Guardar"></input>           
+                                        <div class="form-group"> 
+                                            <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal">Guardar</button>
                                             <button type="button" class="btn btn-warning btn-md" onclick="limpiar()">Limpiar</button>    
-                                            <button type="button" class="btn btn-danger btn-md" onclick="cancelar()">Cancelar</button>   
+                                            <button type="button" class="btn btn-danger btn-md" onclick="cancelar()">Cancelar</button> 
+                                             <!-- Modal -->
+                                            <div id="myModal" class="modal fade" role="dialog">
+                                              <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">VENTANA DE CONFIRMACION</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <p>¿Esta seguro que desea guardar los datos de la pelicula?.</p>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                     <div class="form-group"> 
+                                                        <input  class="btn btn-success btn-md" type="submit" value="Guardar" ></input> 
+                                                        <button type="button" class="btn btn-danger btn-md" data-dismiss="modal">Cancelar</button>
+                                                     </div>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -133,6 +156,11 @@
                 </div>
             </div>
         </div>
+            
+            
+        <!--MODALS-->
+       
+
         <script>
             
             
