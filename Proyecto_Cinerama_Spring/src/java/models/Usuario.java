@@ -12,6 +12,7 @@ import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.bson.Document;
 
 /**
@@ -74,7 +75,7 @@ public class Usuario extends Conexion{
     public void insertar(){
         Document datos = new Document();
         datos.append("_id", this.getId());
-        datos.append("_id", this.getId());
+        datos.append("tipo_documento",this.getTipo_documento());
         datos.append("contraseña", this.getContraseña());
         datos.append("nivel_acceso", this.getNivel_acceso());
         datos.append("nombres", this.getNombres());
@@ -98,6 +99,7 @@ public class Usuario extends Conexion{
     }
     
     public boolean Iniciar_Sesion(){
+        //Document myDoc = collection.find(eq("_id", getId())).first();
         Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getContraseña()))).first();
         return myDoc != null;
     }
@@ -111,11 +113,12 @@ public class Usuario extends Conexion{
     }
 
     public String getContraseña() {
+        
         return contraseña;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contraseña = DigestUtils.sha256Hex(contraseña);
     }
 
     public String getNivel_acceso() {

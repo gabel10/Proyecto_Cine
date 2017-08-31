@@ -25,7 +25,7 @@ public class UsuarioController extends Conexion{
     
     @RequestMapping("login.htm")
     public ModelAndView login(HttpServletRequest request){
-        if(request!=null){
+        if(request.getParameter("id") != null && request.getParameter("password") != null){
             Usuario usuario = new Usuario();
             usuario.setId(request.getParameter("id")); 
             usuario.setContraseña(request.getParameter("password"));
@@ -48,7 +48,7 @@ public class UsuarioController extends Conexion{
             if(!"".equals(pass1) && pass1.equals(pass2)){
                 Usuario usuario = new Usuario();
                 usuario.setId(request.getParameter("id"));
-                usuario.setContraseña(DigestUtils.sha256Hex(pass1));
+                usuario.setContraseña(pass1);
                 usuario.setNivel_acceso("cliente");
                 usuario.setNombres(request.getParameter("nombres"));
                 usuario.setApellido_paterno(request.getParameter("apellido_paterno"));
@@ -85,15 +85,25 @@ public class UsuarioController extends Conexion{
     @RequestMapping("iniciar_sesion.htm")
     public ModelAndView iniciar_sesion(HttpServletRequest request,HttpServletResponse response) throws IOException{
         if(request!=null){
-//            Usuario usuario = new Usuario();
-//            usuario.setId(request.getParameter("id")); 
-//            usuario.setContraseña(request.getParameter("password"));
-            response.sendRedirect("login.htm");
+            String usuario = request.getParameter("usuario");
+            String contraseña = request.getParameter("password");
+            if(!"".equals(usuario) && !"".equals(contraseña)){
+                Usuario user = new Usuario();
+                user.setId(usuario);
+                user.setContraseña(contraseña);
+                if(user.Iniciar_Sesion()){
+                    response.sendRedirect("menu.htm");
+                    return new ModelAndView("home");
+                }
+            }
+            response.sendRedirect("home.htm");
+            return new ModelAndView("home");
         }
         else{
             response.sendRedirect("login.htm");
+            return new ModelAndView("iniciar_sesion");
         }
-        return new ModelAndView();
+        //return new ModelAndView("iniciar_sesion");
     }
 //    
 //    private boolean log_in(){
