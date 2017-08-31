@@ -38,43 +38,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h3>Información Personal</h3>
                             <div>
                                 <span>Tipo de Documento<label>*</label></span>
-                                <select>
+                                <select name="tipo_documento" required>
                                     <option value="DNI">DNI</option>
                                     <option value="Pasaporte">Pasaporte</option>
                                 </select>
                             </div>
                             <div>
                                 <span>Número de Documento<label>*</label></span>
-                                <input type="text" name="id">
+                                <input type="text" name="id" required>
                             </div>
                             <div>
                                 <span>Nombres<label>*</label></span>
-                                <input type="text" name="nombres">
+                                <input type="text" name="nombres" required>
                             </div>
                             <div>
                                 <span>Apellido Paterno<label>*</label></span>
-                                <input type="text" name="apellido_paterno">
+                                <input type="text" name="apellido_paterno" required>
                             </div>
                             <div>
                                 <span>Apellido Materno<label>*</label></span>
-                                <input type="text" name="apellido_materno">
+                                <input type="text" name="apellido_materno" required>
                             </div>
                             <div>
                                 <span>Fecha de Nacimiento<label>*</label></span>
-                                <input type="date" name="fecha_nacimiento">
+                                <input type="date" name="fecha_nacimiento" required>
                             </div>
                             <div>
                                 <span>Correo Electrónico<label>*</label></span>
-                                <input type="email" name="correo_electronico">
+                                <input type="email" name="correo_electronico" required>
                             </div>
                             <div>
                                 <span>Teléfono<label>*</label></span>
-                                <input type="tel" name="telefono">
+                                <input type="tel" name="telefono" required>
                             </div>
                             
                             <div>
                                 <span>Estado Civil<label>*</label></span>
-                                <select name="estado_civil">
+                                <select name="estado_civil" required>
                                     <option value="soltero">Soltero(a)</option>
                                     <option value="casado">Casado(a)</option>
                                     <option value="divorciado">Divorciado(a)</option>
@@ -82,7 +82,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div>
                                 <span>Ocupación<label>*</label></span>
-                                <input type="text" name="ocupacion">
+                                <input type="text" name="ocupacion" required>
                             </div>
                             
                         </div>
@@ -90,7 +90,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h3>Información de Ubicación</h3>
                             <div>
                                 <span>Departamento<label>*</label></span>
-                                <select name="departamento">
+                                <select name="departamento" required>
                                     <option value="Arequipa">Arequipa</option>
                                     <option value="Cusco">Cusco</option>
                                     <option value="Lima" >Lima</option>
@@ -98,15 +98,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div>
                                 <span>Provincia<label>*</label></span>
-                                <input type="text" name="provincia">
+                                <input type="text" name="provincia" required>
                             </div>
                             <div>
                                 <span>Distrito<label>*</label></span>
-                                <input type="text" name="distrito">
+                                <input type="text" name="distrito" required>
                             </div>
                             <div>
                                 <span>Dirección<label>*</label></span>
-                                <input type="text" name="direccion">
+                                <input type="text" name="direccion" required>
                             </div>
                      
                         </div>
@@ -114,11 +114,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h3>Información de Inicio de Sesión</h3>
                             <div>
                                 <span>Contraseña<label>*</label></span>
-                                <input type="password" name="password">
+                                <input type="password" name="password" required>
                             </div>
                             <div>
                                 <span>Confirmar Contraseña<label>*</label></span>
-                                <input type="password" name="confirmar_password">
+                                <input type="password" name="confirmar_password" required>
                             </div>
                             <div class="clearfix"> </div>
                             <a class="news-letter" href="#">
@@ -126,14 +126,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <input type="checkbox" name="checkbox" checked=""><i> </i>Acepto recibir notificaciones.</label>
                             </a>
                         </div>
-                    
-                    <div class="clearfix"> </div>
-                    <div class="register-but">
-                       
+                        <div class="clearfix"> </div>
+                        <div class="register-but">
                             <input type="submit" value="Registrar">
                             <div class="clearfix"> </div>
-                        
-                    </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -24,13 +24,13 @@
                 <prop key="login.htm">usuarioController</prop>
                 <prop key="registro.htm">usuarioController</prop>
                 <prop key="confirmacion_registro.htm">usuarioController</prop>
-                <prop key="menu.htm">usuarioController</prop>                
+                <prop key="menu.htm">usuarioController</prop>
+                <prop key="iniciar_sesion.htm">usuarioController</prop>                
                 <!-- Pelicula -->
                 <prop key="index_peliculas.htm">peliculaController</prop>
                 <prop key="agregar_pelicula.htm">peliculaController</prop>
                 <prop key="modificar_pelicula.htm">peliculaController</prop>
                 <prop key="detalle_pelicula.htm">peliculaController</prop>
-                <prop key="guardar_datos_pelicula.htm">peliculaController</prop>
             </props>
         </property>
     </bean>

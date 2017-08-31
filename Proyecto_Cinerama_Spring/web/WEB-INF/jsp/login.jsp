@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-6 login-right">
                         <h3>Usuarios Registrados</h3>
                         <p>Si ya tienes una cuenta, inicia sesión.</p>
-                        <form action="login.htm" method="GET" name="login">
+                        <form action="iniciar_sesion.htm" method="GET" name="login">
                             <div>
                                 <span>Usuario<label>*</label></span>
                                 <input type="text" name="usuario">

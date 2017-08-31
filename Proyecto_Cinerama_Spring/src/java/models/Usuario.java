@@ -5,12 +5,13 @@
  */
 package models;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.bson.Document;
 
 /**
@@ -37,11 +38,12 @@ public class Usuario extends Conexion{
     private String estado_civil;
     private String ocupacion;
     private String fecha_afiliacion;
+    private String tipo_documento;
 
     public Usuario() {
     }
 
-    public Usuario(String id, String contraseña, String nivel_acceso, String nombres, String apellido_paterno, String apellido_materno, String fecha_nacimiento, String email, String telefono, String departamento, String provincia, String distrito, String direccion, String estado_civil, String ocupacion, String fecha_afiliacion) {
+    public Usuario(String id, String contraseña, String nivel_acceso, String nombres, String apellido_paterno, String apellido_materno, String fecha_nacimiento, String email, String telefono, String departamento, String provincia, String distrito, String direccion, String estado_civil, String ocupacion, String fecha_afiliacion,String tipo_documento) {
         this.id = id;
         this.contraseña = contraseña;
         this.nivel_acceso = nivel_acceso;
@@ -58,6 +60,15 @@ public class Usuario extends Conexion{
         this.estado_civil = estado_civil;
         this.ocupacion = ocupacion;
         this.fecha_afiliacion = fecha_afiliacion;
+        this.tipo_documento = tipo_documento;
+    }
+
+    public String getTipo_documento() {
+        return tipo_documento;
+    }
+
+    public void setTipo_documento(String tipo_documento) {
+        this.tipo_documento = tipo_documento;
     }
     
     public void insertar(){
@@ -215,8 +226,9 @@ public class Usuario extends Conexion{
         return fecha_afiliacion;
     }
 
-    public void setFecha_afiliacion(String fecha_afiliacion) {
-        this.fecha_afiliacion = fecha_afiliacion;
+    public void setFecha_afiliacion() {
+         SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+        this.fecha_afiliacion = sdf.format(new Date());
     }
     
 }
