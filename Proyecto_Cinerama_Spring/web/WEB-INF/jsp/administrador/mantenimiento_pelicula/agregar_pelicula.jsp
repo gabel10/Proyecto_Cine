@@ -112,10 +112,10 @@
                                     
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                              <label>Abrir Imagen de la Pelicula</label>
-                                               <input type="file" id="imagen" name="files[]"/>
-                                                <br />
-                                                <output id="list"></output>                                                                       
+                                              <a type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modal_index_imagenes">Abrir Poster de Pelicula</a><br><br>   
+                                              <div id="imagen" class="movie_image">
+                                                  
+                                              </div>
                                         </div>                       
                                     </div>    
                                     <div class="col-lg-12">
@@ -159,7 +159,28 @@
             
             
         <!--MODALS-->
-       
+        <!-- Modal -->
+        <div id="modal_index_imagenes" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Imagenes</h4>
+              </div>
+              <div class="modal-body">                  
+              </div>             
+              <div class="modal-footer">
+                 <div class="form-group">                    
+                    <input  class="btn btn-success btn-md" type="submit" value="Aceptar" ></input> 
+                    <button type="button" class="btn btn-danger btn-md" data-dismiss="modal">Cancelar</button>
+                 </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
         <script>
             
@@ -193,25 +214,7 @@
                 document.getElementById("genero").value = lista_generos;
                 
             }
-            function archivo(evt) {
-                var files = evt.target.files; // FileList object
-                // Obtenemos la imagen del campo "file".
-                for (var i = 0, f; f = files[i]; i++) {
-                  //Solo admitimos imágenes.
-                  if (!f.type.match('image.*')) {
-                      continue;
-                  }
-                  var reader = new FileReader();
-                  reader.onload = (function(theFile) {
-                      return function(e) {
-                        // Insertamos la imagen
-                       document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
-                      };
-                  })(f);
-                  reader.readAsDataURL(f);
-                }
-            }
-            document.getElementById('imagen').addEventListener('change', archivo, false);
+            
         </script>   
         <!-- jQuery -->
         <script src="${pageContext.request.contextPath}/recursos/js/jquery.js"></script>

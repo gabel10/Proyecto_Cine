@@ -33,6 +33,11 @@
                 <prop key="detalle_pelicula.htm">peliculaController</prop>
                 <prop key="guardar_datos_pelicula.htm">peliculaController</prop>
                 <prop key="modificar_datos_pelicula.htm">peliculaController</prop>
+                
+                <!-- Sala -->
+                <prop key="index_salas.htm">salaController</prop>
+                <prop key="agregar_sala.htm">salaController</prop>
+                
             </props>
         </property>
     </bean>
@@ -48,6 +53,7 @@
     <bean name="homeController" class="controllers.HomeController"/>
     <bean name="usuarioController" class="controllers.UsuarioController"/>
     <bean name="peliculaController" class="controllers.PeliculaController"/>
+    <bean name="salaController" class="controllers.SalaController"/>
     
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
