@@ -98,10 +98,10 @@ public class Usuario extends Conexion{
         }
     }
     
-    public boolean Iniciar_Sesion(){
+    public Document Iniciar_Sesion(){
         //Document myDoc = collection.find(eq("_id", getId())).first();
         Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getContraseña()))).first();
-        return myDoc != null;
+        return myDoc;
     }
 
     public String getId() {

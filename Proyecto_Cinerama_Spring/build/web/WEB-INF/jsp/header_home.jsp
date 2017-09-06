@@ -6,6 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% HttpSession sesion = request.getSession(true);  
+    String usuario = "Iniciar Sesión";
+    String id = "";
+    int tiempo_expiracion = 0;
+    if(sesion.getAttribute("usuario") != null){
+        usuario = sesion.getAttribute("usuario").toString();
+        id = sesion.getAttribute("id").toString();
+        tiempo_expiracion = sesion.getMaxInactiveInterval();
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,11 +35,12 @@
             </div>
             <div class="col-sm-3 header_right">
                 <ul class="header_right_box">
-                    <li><img src="<c:url value="/recursos/images/user.png"/>" alt="" /></li>
                     <li>
-                        <p><a href="login.htm">Iniciar Sesión</a></p>
+                        <p><a href="login.htm"><%=usuario%></a></p>
                     </li>
-                    <li class="last"><i class="edit"> </i></li>
+                    <%if(usuario != "Iniciar Sesión"){%>
+                    <li class="last">Salir </li>    
+                    <%}%>
                 </ul>
             </div>
             <div class="clearfix"> </div>

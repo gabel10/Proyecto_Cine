@@ -10,11 +10,12 @@ import models.Conexion;
 import java.text.ParseException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import models.Usuario;
+import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -91,7 +92,13 @@ public class UsuarioController extends Conexion{
                 Usuario user = new Usuario();
                 user.setId(usuario);
                 user.setContraseña(contraseña);
-                if(user.Iniciar_Sesion()){
+                Document u = user.Iniciar_Sesion();
+                if(u != null){
+                    HttpSession sesion = request.getSession();
+                    String nombre_user = u.get("nombres", String.class)+" "+u.get("apellido_paterno",String.class)+" "+u.get("apellido_materno",String.class);
+                    sesion.setAttribute("id", u.get("_id",String.class));
+                    sesion.setAttribute("usuario",nombre_user);
+                    sesion.setMaxInactiveInterval(60);
                     response.sendRedirect("menu.htm");
                     return new ModelAndView("home");
                 }
