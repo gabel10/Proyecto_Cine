@@ -35,9 +35,15 @@ public class UsuarioController extends Conexion{
     }
         
     @RequestMapping("menu.htm")
-    public ModelAndView menu(HttpServletRequest request){
+    public ModelAndView menu(HttpServletRequest request,HttpServletResponse response) throws IOException{
+        HttpSession sesion = request.getSession();
         ModelAndView v = new ModelAndView();
-        v.setViewName("administrador/menu");
+        if(sesion.getAttribute("usuario") != null){
+            v.setViewName("administrador/menu");
+        }else{
+            response.sendRedirect("home.htm");
+            v.setViewName("home");
+        }
         return v;
     }
     

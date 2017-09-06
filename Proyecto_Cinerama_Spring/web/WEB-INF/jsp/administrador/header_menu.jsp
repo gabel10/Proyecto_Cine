@@ -1,3 +1,12 @@
+<%@page import="javax.servlet.http.HttpServletResponse"%>
+<% HttpSession sesion = request.getSession(true);  
+    String usuario = "Iniciar Sesión";
+    String id = "";
+    if(sesion.getAttribute("usuario") != null){
+        usuario = sesion.getAttribute("usuario").toString();
+        id = sesion.getAttribute("id").toString();
+    }
+    %>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -39,7 +48,7 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Cesar Achahui<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%=usuario%><b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
                     <a href=""><i class="fa fa-fw fa-user"></i> Perfil</a>
