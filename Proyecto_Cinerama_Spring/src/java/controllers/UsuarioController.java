@@ -37,14 +37,20 @@ public class UsuarioController extends Conexion{
     @RequestMapping("menu.htm")
     public ModelAndView menu(HttpServletRequest request,HttpServletResponse response) throws IOException{
         HttpSession sesion = request.getSession();
-        ModelAndView v = new ModelAndView();
-        if(sesion.getAttribute("usuario") != null){
-            v.setViewName("administrador/menu");
-        }else{
+        String nombre_pagina = "";
+        if(sesion.getAttribute("usuario") == null){
             response.sendRedirect("home.htm");
-            v.setViewName("home");
+            nombre_pagina = "home";
+        }else{
+            String nivel_acceso = sesion.getAttribute("nivel_acceso").toString();
+            if("administrador".equals(nivel_acceso) || "vendedor".equals(nivel_acceso)){
+                nombre_pagina = "administrador/menu";
+            }else if("cliente".equals(nivel_acceso)){
+                response.sendRedirect("home.htm");
+                nombre_pagina = "home";
+            }
         }
-        return v;
+        return new ModelAndView(nombre_pagina);
     }
     
     @RequestMapping("confirmacion_registro.htm")
@@ -91,22 +97,30 @@ public class UsuarioController extends Conexion{
     
     @RequestMapping("iniciar_sesion.htm")
     public ModelAndView iniciar_sesion(HttpServletRequest request,HttpServletResponse response) throws IOException{
+        String usuario, contraseña, nivel_acceso;
         if(request!=null){
-            String usuario = request.getParameter("usuario");
-            String contraseña = request.getParameter("password");
+            usuario = request.getParameter("usuario");
+            contraseña = request.getParameter("password");
             if(!"".equals(usuario) && !"".equals(contraseña)){
                 Usuario user = new Usuario();
                 user.setId(usuario);
                 user.setContraseña(contraseña);
                 Document u = user.Iniciar_Sesion();
                 if(u != null){
+                    nivel_acceso  = u.get("nivel_acceso", String.class);
                     HttpSession sesion = request.getSession();
                     String nombre_user = u.get("nombres", String.class)+" "+u.get("apellido_paterno",String.class)+" "+u.get("apellido_materno",String.class);
                     sesion.setAttribute("id", u.get("_id",String.class));
                     sesion.setAttribute("usuario",nombre_user);
+                    sesion.setAttribute("nivel_acceso", nivel_acceso);
                     sesion.setMaxInactiveInterval(60);
-                    response.sendRedirect("menu.htm");
-                    return new ModelAndView("home");
+                    if("cliente".equals(nivel_acceso)){
+                        response.sendRedirect("cinefilo.htm");
+                        return new ModelAndView("home");
+                    }else if("administrador".equals(nivel_acceso) || "vendedor".equals(nivel_acceso)){
+                        response.sendRedirect("menu.htm");
+                        return new ModelAndView("home");
+                    } 
                 }
             }
             response.sendRedirect("home.htm");
@@ -116,11 +130,5 @@ public class UsuarioController extends Conexion{
             response.sendRedirect("login.htm");
             return new ModelAndView("iniciar_sesion");
         }
-        //return new ModelAndView("iniciar_sesion");
     }
-//    
-//    private boolean log_in(){
-//        Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getPassword()))).first();
-//        return myDoc != null;
-//    }
 }

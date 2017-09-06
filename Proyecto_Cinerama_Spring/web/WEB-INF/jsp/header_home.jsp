@@ -8,9 +8,11 @@
 <% HttpSession sesion = request.getSession(true);  
     String usuario = "Iniciar Sesión";
     String id = "";
+    String ref = "login.htm";
     if(sesion.getAttribute("usuario") != null){
         usuario = sesion.getAttribute("usuario").toString();
         id = sesion.getAttribute("id").toString();
+        ref = "panel.htm";
     }%>
             <div class="header_top">
                 <div class="col-sm-3 logo"><a href="home.htm"><img src="${pageContext.request.contextPath}/recursos/images/logo.jpg" alt=""/></a></div>
@@ -26,7 +28,7 @@
                 <div class="col-sm-3 header_right">
                     <ul class="header_right_box">
                         <li>
-                            <p><a href="login.htm"><%=usuario%></a></p>
+                            <p><a href=<%=ref%>><%=usuario%></a></p>
                         </li>
                         <%if(usuario != "Iniciar Sesión"){%>
                         <li class="last">Salir </li>    
