@@ -25,13 +25,25 @@ import org.springframework.web.servlet.ModelAndView;
 public class UsuarioController extends Conexion{
     
     @RequestMapping("login.htm")
-    public ModelAndView login(HttpServletRequest request){
-        if(request.getParameter("id") != null && request.getParameter("password") != null){
-            Usuario usuario = new Usuario();
-            usuario.setId(request.getParameter("id")); 
-            usuario.setContraseña(request.getParameter("password"));
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String nombre_pagina = "login";
+        HttpSession sesion = request.getSession();
+        if(sesion.getAttribute("usuario") != null){
+            String nivel_acceso = sesion.getAttribute("nivel_acceso").toString();
+            if("administrador".equals(nivel_acceso) || "vendedor".equals(nivel_acceso)){
+                nombre_pagina = "administrador/menu";
+            }else if("cliente".equals(nivel_acceso)){
+                response.sendRedirect("panel.htm");
+                nombre_pagina = "panel";
+            }
         }
-        return new ModelAndView("login");
+        return new ModelAndView(nombre_pagina);
+//        if(request.getParameter("id") != null && request.getParameter("password") != null){
+//            Usuario usuario = new Usuario();
+//            usuario.setId(request.getParameter("id")); 
+//            usuario.setContraseña(request.getParameter("password"));
+//        }
+//        return new ModelAndView("login");
     }
         
     @RequestMapping("menu.htm")
@@ -115,7 +127,7 @@ public class UsuarioController extends Conexion{
                     sesion.setAttribute("nivel_acceso", nivel_acceso);
                     sesion.setMaxInactiveInterval(60);
                     if("cliente".equals(nivel_acceso)){
-                        response.sendRedirect("cinefilo.htm");
+                        response.sendRedirect("panel.htm");
                         return new ModelAndView("home");
                     }else if("administrador".equals(nivel_acceso) || "vendedor".equals(nivel_acceso)){
                         response.sendRedirect("menu.htm");
@@ -130,5 +142,10 @@ public class UsuarioController extends Conexion{
             response.sendRedirect("login.htm");
             return new ModelAndView("iniciar_sesion");
         }
+    }
+    
+    @RequestMapping("panel.htm")
+    public ModelAndView panel(){
+        return new ModelAndView("panel");
     }
 }
