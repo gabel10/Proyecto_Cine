@@ -103,6 +103,10 @@ public class Usuario extends Conexion{
         Document myDoc = collection.find(and(eq("_id", getId()),eq("contraseña",getContraseña()))).first();
         return myDoc;
     }
+    public Document Obtener_Datos(){
+        Document myDoc = collection.find(eq("_id",getId())).first();
+        return myDoc;
+    }
 
     public String getId() {
         return id;

@@ -5,6 +5,8 @@
  */
 package controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
     
     @RequestMapping("home.htm")
-    public ModelAndView home(){
+    public ModelAndView home(HttpServletRequest request){
+        HttpSession sesion = request.getSession();
+        if(sesion.getAttribute("logout") != null){
+            sesion.invalidate();
+        }
         ModelAndView v = new ModelAndView();
         v.setViewName("home");
         return v;

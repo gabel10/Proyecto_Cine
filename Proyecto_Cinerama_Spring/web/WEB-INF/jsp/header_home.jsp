@@ -31,7 +31,10 @@
                             <p><a href=<%=ref%>><%=usuario%></a></p>
                         </li>
                         <%if(usuario != "Iniciar Sesión"){%>
-                        <li class="last">Salir </li>    
+                        <li class="last">
+                            <% sesion.setAttribute("logout","true");%>
+                            <a href="home.htm">Salir</a>
+                        </li>    
                         <%}%>
                     </ul>
                 </div>

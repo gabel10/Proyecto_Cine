@@ -38,12 +38,6 @@ public class UsuarioController extends Conexion{
             }
         }
         return new ModelAndView(nombre_pagina);
-//        if(request.getParameter("id") != null && request.getParameter("password") != null){
-//            Usuario usuario = new Usuario();
-//            usuario.setId(request.getParameter("id")); 
-//            usuario.setContraseña(request.getParameter("password"));
-//        }
-//        return new ModelAndView("login");
     }
         
     @RequestMapping("menu.htm")
@@ -125,7 +119,7 @@ public class UsuarioController extends Conexion{
                     sesion.setAttribute("id", u.get("_id",String.class));
                     sesion.setAttribute("usuario",nombre_user);
                     sesion.setAttribute("nivel_acceso", nivel_acceso);
-                    sesion.setMaxInactiveInterval(60);
+                    sesion.setMaxInactiveInterval(180);
                     if("cliente".equals(nivel_acceso)){
                         response.sendRedirect("panel.htm");
                         return new ModelAndView("home");
@@ -145,7 +139,25 @@ public class UsuarioController extends Conexion{
     }
     
     @RequestMapping("panel.htm")
-    public ModelAndView panel(){
-        return new ModelAndView("panel");
+    public ModelAndView panel(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        ModelAndView v = new ModelAndView();
+        HttpSession sesion = request.getSession();
+        if(sesion.getAttribute("usuario") == null){
+            v.setViewName("home");
+            response.sendRedirect("home.htm");
+        }else{
+            String id = sesion.getAttribute("id").toString();
+            Usuario user = new Usuario();
+            user.setId(id);
+            Document u = user.Obtener_Datos();
+            if(u == null){
+                v.setViewName("home");
+                response.sendRedirect("home.htm");
+            }else{
+                v.addObject("user", u);
+                v.setViewName("panel");
+            }
+        }
+        return v;
     }
 }

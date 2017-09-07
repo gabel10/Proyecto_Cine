@@ -34,8 +34,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="content">
                 <div class="register">
                     <form name="Registrar" method="post" action="confirmacion_registro.htm">
-                        <div class="register-top-grid">
-                            <h3>Información Personal</h3>
+                        <h3>Información Personal</h3>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Tipo de Documento<label>*</label></span>
                                 <select name="tipo_documento" required>
@@ -43,35 +43,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <option value="Pasaporte">Pasaporte</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Número de Documento<label>*</label></span>
                                 <input type="text" name="id" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Nombres<label>*</label></span>
                                 <input type="text" name="nombres" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Apellido Paterno<label>*</label></span>
                                 <input type="text" name="apellido_paterno" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Apellido Materno<label>*</label></span>
                                 <input type="text" name="apellido_materno" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Fecha de Nacimiento<label>*</label></span>
                                 <input type="date" name="fecha_nacimiento" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Correo Electrónico<label>*</label></span>
                                 <input type="email" name="correo_electronico" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Teléfono<label>*</label></span>
                                 <input type="tel" name="telefono" required>
                             </div>
-                            
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Estado Civil<label>*</label></span>
                                 <select name="estado_civil" required>
@@ -80,53 +95,59 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <option value="divorciado">Divorciado(a)</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Ocupación<label>*</label></span>
                                 <input type="text" name="ocupacion" required>
                             </div>
-                            
                         </div>
-                        <div class="register-top-grid">
-                            <h3>Información de Ubicación</h3>
+                        <br>
+                        <h3>Información de Ubicación</h3>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Departamento<label>*</label></span>
                                 <select name="departamento" required>
+                                    <option value="Amazonas">Amazonas</option>
                                     <option value="Arequipa">Arequipa</option>
                                     <option value="Cusco">Cusco</option>
                                     <option value="Lima" >Lima</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Provincia<label>*</label></span>
                                 <input type="text" name="provincia" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Distrito<label>*</label></span>
                                 <input type="text" name="distrito" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Dirección<label>*</label></span>
                                 <input type="text" name="direccion" required>
                             </div>
-                     
-                        </div>
-                        <div class="register-bottom-grid">
-                            <h3>Información de Inicio de Sesión</h3>
+                        </div>    
+                        <h3>Información de Inicio de Sesión</h3>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Contraseña<label>*</label></span>
                                 <input type="password" name="password" required>
                             </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Confirmar Contraseña<label>*</label></span>
                                 <input type="password" name="confirmar_password" required>
                             </div>
-                            <div class="clearfix"> </div>
-                            <a class="news-letter" href="#">
-                                <label class="checkbox">
-                                <input type="checkbox" name="checkbox" checked=""><i> </i>Acepto recibir notificaciones.</label>
-                            </a>
-                        </div>
+                        </div> 
                         <div class="clearfix"> </div>
+                        <br>
                         <div class="register-but">
                             <input type="submit" value="Registrar">
                             <div class="clearfix"> </div>

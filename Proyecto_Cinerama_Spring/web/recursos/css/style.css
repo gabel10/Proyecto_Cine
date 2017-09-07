@@ -1310,14 +1310,15 @@ text-transform: uppercase;
 .login-right form div {
 	padding: 0 0 1.5em 0;
 }
-.login-right span {
+.login-right span, .login-left span {
 	color: #999;
-	font-size:0.95em;
-
+	font-size:1.05em;
 	display: block;
 
 }
-.login-right input[type="text"] {
+.login-right input[type="text"], .login-left select, .login-left input[type="text"], 
+.login-left input[type="email"], .login-right input[type="tel"], .login-right input[type="date"],
+.login-left input[type="password"], .login-right input[type="password"]{
 	border: 1px solid #E4E4E4;
 	outline-color:#d8232a;
 	width: 96%;
@@ -1581,7 +1582,7 @@ i.icon4 {
 	margin-bottom: 2em;
 }
 .login-right {
-	margin-top: 3em;
+	
 }
 .login-left h3, .login-right h3 {
 	padding-bottom: 0;
