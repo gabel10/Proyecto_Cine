@@ -79,6 +79,7 @@ border-top-right-radius: 3px;
 	margin-top: 4px;
 }
 /*---social-icons-----*/
+/*
 .nav {
 	text-align:center;
         display:flex;
@@ -89,11 +90,10 @@ border-top-right-radius: 3px;
 	list-style:none;
 }
 .nav li{
-
 	margin: 0px 4% 0px 0;
-	display:inline-block;
+	display: inline-block;
 }
-/*.nav li a {
+.nav li a {
 	height:30px;
 	width:30px;
 	display: block;
@@ -220,7 +220,7 @@ font-weight: 600;
 margin-top: 4px;
 }
 ul.header_right_box li p a{
-	color:#3f444e;
+	color: rgba(139,0,0,1);
 }
 ul.header_right_box li p a:hover{
 	text-decoration:none;
@@ -1538,7 +1538,7 @@ ul.header_right_box {
 	margin: 0;
 }
 .nav li {
-	margin: 0px 3% 0px 0;
+	margin: 0px 0px 0px 0px;
 }
 .col-sm-3.header_right {
 	padding-left: 0;

@@ -59,3 +59,5 @@
             </div>
         </footer>
     </div>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="${pageContext.request.contextPath}/recursos/js/bootstrap.min.js"></script>

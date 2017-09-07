@@ -49,7 +49,7 @@
                             <ul class="nav navbar-nav">
                               <li class="active"><a href="#">Mi Historial</a></li>
                               <li><a href="#">Mis Datos</a></li>
-                              <li><a href="#">a</a></li>
+                              <li><a href="#">Mi Contraseña</a></li>
                             </ul>
                           </div>
                         </nav>
