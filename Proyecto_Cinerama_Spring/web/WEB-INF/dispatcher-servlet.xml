@@ -38,6 +38,24 @@
                 <!-- Sala -->
                 <prop key="index_salas.htm">salaController</prop>
                 <prop key="agregar_sala.htm">salaController</prop>
+                <prop key="modificar_sala.htm">salaController</prop>
+                <prop key="detalle_sala.htm">salaController</prop>
+                <prop key="guardar_datos_sala.htm">salaController</prop>
+                <prop key="modificar_datos_sala.htm">salaController</prop>
+                
+                  <!-- Funcion -->
+                <prop key="index_funciones.htm">funcionController</prop>
+                <prop key="agregar_funcion.htm">funcionController</prop>
+                <prop key="modificar_funcion.htm">funcionController</prop>
+                <prop key="detalle_funcion.htm">funcionController</prop>
+                <prop key="guardar_datos_funcion.htm">funcionController</prop>
+                <prop key="modificar_datos_funcion.htm">funcionController</prop>
+                
+                <!-- Reserva -->
+                <prop key="single.htm">reservaController</prop>
+                <prop key="cantbutacas.htm">reservaController</prop>
+                <prop key="reservarbutacas.htm">reservaController</prop>
+                <prop key="confirmacion_reserva.htm">reservaController</prop>
                 
             </props>
         </property>
@@ -55,6 +73,8 @@
     <bean name="usuarioController" class="controllers.UsuarioController"/>
     <bean name="peliculaController" class="controllers.PeliculaController"/>
     <bean name="salaController" class="controllers.SalaController"/>
+    <bean name="reservaController" class="controllers.ReservaController"/>
+    <bean name="funcionController" class="controllers.FuncionController"/>
     
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"

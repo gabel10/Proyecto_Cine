@@ -44,6 +44,15 @@
                 <div id="contenido">
                     <div class="content">
                         <h2 align="center">Bienvenido, <%=sesion.getAttribute("usuario").toString()%></h2>
+                        <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <ul class="nav navbar-nav">
+                              <li class="active"><a href="#">Mi Historial</a></li>
+                              <li><a href="#">Mis Datos</a></li>
+                              <li><a href="#">a</a></li>
+                            </ul>
+                          </div>
+                        </nav>
                         <div class="register">
                             <h3>Información Personal</h3>
                             <div class="col-md-6 col-xs-12 login-left">

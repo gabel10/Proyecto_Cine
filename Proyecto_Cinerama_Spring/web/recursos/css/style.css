@@ -81,7 +81,7 @@ border-top-right-radius: 3px;
 /*---social-icons-----*/
 .nav {
 	text-align:center;
-
+        display:flex;
 }
 .nav ul{
 	padding:0;
@@ -93,11 +93,11 @@ border-top-right-radius: 3px;
 	margin: 0px 4% 0px 0;
 	display:inline-block;
 }
-.nav li a {
+/*.nav li a {
 	height:30px;
 	width:30px;
 	display: block;
-}
+}*/
 .nav li a:hover {
 	zoom: 1;
 	filter: alpha(opacity=50);
@@ -183,6 +183,7 @@ border-top-right-radius: 3px;
 	transform: translateY(10px);
 }
 /*------------end social simptip----------------*/
+/*
 .nav li:nth-child(1) a{
 	background: url(../images/img_sprite.png) -7px -9px;
 }
@@ -201,6 +202,7 @@ border-top-right-radius: 3px;
 .nav li:nth-child(6) a{
 	background: url(../images/img_sprite.png) -216px -9px;
 }
+*/
 ul.header_right_box{
 	padding:0;
 	margin: 0 0 0 33%;
