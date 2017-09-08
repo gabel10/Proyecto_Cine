@@ -46,34 +46,79 @@
                         <h2 align="center">Bienvenido, <%=sesion.getAttribute("usuario").toString()%></h2>
                         <nav class="navbar navbar-default">
                           <div class="container-fluid">
-                            <ul class="nav navbar-nav">
-                              <li class="active"><a href="#">Mi Historial</a></li>
-                              <li><a href="#">Mis Datos</a></li>
-                              <li><a href="#">Mi Contraseña</a></li>
+                            <ul id="menu" class="nav navbar-nav">
+                              <li id="uno" class="active"><a href="#historial">Mi Historial</a></li>
+                              <li id="dos"><a href="#datos">Mis Datos</a></li>
+                              <li id="tres"><a href="#contraseña">Mi Contraseña</a></li>
+                              <%
+                                  String nivel_acceso = sesion.getAttribute("nivel_acceso").toString();
+                                  if("administrador".equals(nivel_acceso)){
+                              %>
+                              <li><a href="menu.htm">Menú Administrador</a></li>
+                              <%
+                                  }else if("vendedor".equals(nivel_acceso)){
+                              %>
+                              <li><a href="menu.htm">Menú Vendedor</a></li>
+                              <%
+                                  }
+                              %>
                             </ul>
                           </div>
                         </nav>
-                        <div class="register">
-                            <h3>Información Personal</h3>
-                            <div class="col-md-6 col-xs-12 login-left">
-                                <div class="form-group">
-                                    <label>Tipo de Documento</label>
-                                    <input id ="id" class="form-control"  name="tipo_documento" value="${user.get("tipo_documento")}" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xs-12 login-right">
-                                <div class="form-group">
-                                    <label>DNI</label>
-                                    <input id ="id" class="form-control"  name="id" value="${user.get("_id")}" readonly>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
+                        <div id="historial">
+                            <h3>hols este es el historial</h3>
                         </div>
+                        <div id="datos" style="display:none;">
+                            <div class="register">
+                                <h3>Información Personal</h3>
+                                <div class="col-md-6 col-xs-12 login-left">
+                                    <div class="form-group">
+                                        <label>Tipo de Documento</label>
+                                        <input id ="id" class="form-control"  name="tipo_documento" value="${user.get("tipo_documento")}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12 login-right">
+                                    <div class="form-group">
+                                        <label>DNI</label>
+                                        <input id ="id" class="form-control"  name="id" value="${user.get("_id")}" readonly>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div id="contraseña" style="display:none;">
+                            <h3>Hola esta es la contrasña</h3>
+                        </div>
+                        
                     </div>
                 </div>    
             </div>
         </div>
-
         <jsp:include page="footer_home.jsp"/>
+        <script>
+            $("#menu").click(function(e){
+                var li = e.target.parentNode;
+                var lis = "#"+li.id;
+                $('#uno').removeClass('active');
+                $('#dos').removeClass('active');
+                $('#tres').removeClass('active');
+                $(lis).addClass('active');
+            });
+            $("#uno").click(function(){
+                document.getElementById('datos').style.display = 'none';
+                document.getElementById('contraseña').style.display = 'none';
+                document.getElementById('historial').style.display = 'block';
+            });
+            $("#dos").click(function(){
+                document.getElementById('historial').style.display = 'none';
+                document.getElementById('contraseña').style.display = 'none';
+                document.getElementById('datos').style.display = 'block';
+            });
+            $("#tres").click(function(){
+                document.getElementById('historial').style.display = 'none';
+                document.getElementById('datos').style.display = 'none';
+                document.getElementById('contraseña').style.display = 'block';
+            });
+        </script>
     </body>
 </html>
