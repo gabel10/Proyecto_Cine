@@ -61,3 +61,14 @@
     </div>
     <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/recursos/js/bootstrap.min.js"></script>
+    <script>
+            $("#menu-nav").click(function(e){
+                var li = e.target.parentNode;
+                var lis = "#"+li.id;
+                $('#cartelera').removeClass('active');
+                $('#estrenos').removeClass('active');
+                $('#cines').removeClass('active');
+                $('#contactanos').removeClass('active');
+                $(lis).addClass('active');
+            });
+        </script>

@@ -120,13 +120,11 @@ public class UsuarioController extends Conexion{
                     sesion.setAttribute("usuario",nombre_user);
                     sesion.setAttribute("nivel_acceso", nivel_acceso);
                     sesion.setMaxInactiveInterval(180);
-                    if("cliente".equals(nivel_acceso)){
-                        response.sendRedirect("panel.htm");
-                        return new ModelAndView("home");
-                    }else if("administrador".equals(nivel_acceso) || "vendedor".equals(nivel_acceso)){
-                        response.sendRedirect("menu.htm");
-                        return new ModelAndView("home");
-                    } 
+                    response.sendRedirect("panel.htm");
+                    ModelAndView v = new ModelAndView();
+                    v.addObject("cliente",u);
+                    v.setViewName("panel");
+                    return v;
                 }
             }
             response.sendRedirect("home.htm");

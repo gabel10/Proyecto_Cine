@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -47,31 +48,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Número de Documento<label>*</label></span>
-                                <input type="text" name="id" required>
+                                <input title="Cadena de 8 números" type="text" name="id" pattern="[0-9]{8,}" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Nombres<label>*</label></span>
-                                <input type="text" name="nombres" required>
+                                <input type="text" name="nombres" pattern="[A-Za-z ]{2,}" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Apellido Paterno<label>*</label></span>
-                                <input type="text" name="apellido_paterno" required>
+                                <input type="text" name="apellido_paterno" pattern="[A-Za-z ]{2,}" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Apellido Materno<label>*</label></span>
-                                <input type="text" name="apellido_materno" required>
+                                <input type="text" name="apellido_materno" pattern="[A-Za-z ]{2,}" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Fecha de Nacimiento<label>*</label></span>
-                                <input type="date" name="fecha_nacimiento" required>
+                                <%
+                                Calendar fechaActual = Calendar.getInstance();
+                                String cadenaFecha = String.format("%04d-%02d-%02d",
+                                  fechaActual.get(Calendar.YEAR)-18,
+                                  fechaActual.get(Calendar.MONTH)+1,
+                                  fechaActual.get(Calendar.DAY_OF_MONTH));
+                                %>
+                                <input title="Usted debe ser mayor de edad" type="date" name="fecha_nacimiento" min="1920-01-01" max="<%=cadenaFecha%>" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-left">
@@ -83,7 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Teléfono<label>*</label></span>
-                                <input type="tel" name="telefono" required>
+                                <input type="tel" name="telefono" pattern="[0-9]{6,}"required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-left">
@@ -99,7 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Ocupación<label>*</label></span>
-                                <input type="text" name="ocupacion" required>
+                                <input type="text" name="ocupacion" pattern="[A-Za-z ]{6,}" required>
                             </div>
                         </div>
                         <br>
@@ -109,9 +117,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <span>Departamento<label>*</label></span>
                                 <select name="departamento" required>
                                     <option value="Amazonas">Amazonas</option>
-                                    <option value="Arequipa">Arequipa</option>
-                                    <option value="Cusco">Cusco</option>
+                                    <option value="Áncash">Áncash</option>
+                                    <option value="Apurímac">Apurímac</option>
+                                    <option value="Arequipa" >Arequipa</option>
+                                    <option value="Ayacucho" >Ayacucho</option>
+                                    <option value="Cajamarca" >Cajamarca</option>
+                                    <option value="Callao" >Callao</option>
+                                    <option value="Cusco" >Cusco</option>
+                                    <option value="Huancavelica" >Huancavelica</option>
+                                    <option value="Huánuco" >Huánuco</option>
+                                    <option value="Ica" >Ica</option>
+                                    <option value="Junín" >Junín</option>
+                                    <option value="La Libertad" >La Libertad</option>
+                                    <option value="Lambayeque" >Lambayeque</option>
                                     <option value="Lima" >Lima</option>
+                                    <option value="Loreto" >Loreto</option>
+                                    <option value="Madre de Dios" >Madre de Dios</option>
+                                    <option value="Moquegua" >Moquegua</option>
+                                    <option value="Pasco" >Pasco</option>
+                                    <option value="Piura" >Piura</option>
+                                    <option value="Puno" >Puno</option>
+                                    <option value="San Martín" >San Martín</option>
+                                    <option value="Tacna" >Tacna</option>
+                                    <option value="Tumbes" >Tumbes</option>
+                                    <option value="Ucayali" >Ucayali</option>
                                 </select>
                             </div>
                         </div>
@@ -130,20 +159,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Dirección<label>*</label></span>
-                                <input type="text" name="direccion" required>
+                                <input type="text" name="direccion" pattern="[A-Za-z ]{6,}" required>
                             </div>
                         </div>    
                         <h3>Información de Inicio de Sesión</h3>
                         <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Contraseña<label>*</label></span>
-                                <input type="password" name="password" required>
+                                <input title="Contraseña debe contener 8 caracteres, incluyendo un numero, una letra en mayúscula y una en minúscula"type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 login-left">
                             <div>
                                 <span>Confirmar Contraseña<label>*</label></span>
-                                <input type="password" name="confirmar_password" required>
+                                <input title="Contraseña debe contener 8 caracteres, incluyendo un numero, una letra en mayúscula y una en minúscula" type="password" name="confirmar_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                             </div>
                         </div> 
                         <div class="clearfix"> </div>

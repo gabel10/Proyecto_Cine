@@ -27,15 +27,15 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                               </button>
-                               <a class="navbar-brand" href="#">Cinerama</a>
+                               <a class="navbar-brand" href="home.htm">Cinerama</a>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#">Cartelera <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#">Próximos Estrenos</a></li>
-                                    <li><a href="">Cines</a></li>
-                                    <li><a href="">Contáctanos</a></li>
+                                <ul id="menu-nav" class="nav navbar-nav">
+                                    <li id="cartelera"><a href="#">Cartelera <span class="sr-only">(current)</span></a></li>
+                                    <li id="estrenos"><a href="#">Próximos Estrenos</a></li>
+                                    <li id="cines"><a href="#">Cines</a></li>
+                                    <li id="contactanos"><a href="#">Contáctanos</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                       </div><!-- /.container-fluid -->
