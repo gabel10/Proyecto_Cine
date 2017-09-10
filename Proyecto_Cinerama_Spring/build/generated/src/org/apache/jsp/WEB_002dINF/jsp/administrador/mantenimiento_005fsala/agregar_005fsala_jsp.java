@@ -1,0 +1,275 @@
+package org.apache.jsp.WEB_002dINF.jsp.administrador.mantenimiento_005fsala;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class agregar_005fsala_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta charset=\"utf-8\">\r\n");
+      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
+      out.write("        <meta name=\"description\" content=\"\">\r\n");
+      out.write("        <meta name=\"author\" content=\"\">\r\n");
+      out.write("        <title>Cinerama | Administrador</title>\r\n");
+      out.write("        <!-- Bootstrap Core CSS -->\r\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <!-- Custom CSS -->\r\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/css/sb-admin.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <!-- Morris Charts CSS -->\r\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/css/plugins/morris.css\" rel=\"stylesheet\">\r\n");
+      out.write("        <!-- Custom Fonts -->\r\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">\r\n");
+      out.write("        <link type=\"image/x-icon\" rel=\"shortcut icon\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/images/favicon.png\">\r\n");
+      out.write("        <style>\r\n");
+      out.write("          .thumb {\r\n");
+      out.write("            height: 300px;\r\n");
+      out.write("            border: 1px solid #000;\r\n");
+      out.write("            margin: 10px 5px 0 0;\r\n");
+      out.write("          }\r\n");
+      out.write("        </style>        \r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <div id=\"wrapper\">\r\n");
+      out.write("            ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../header_menu.jsp", out, false);
+      out.write("\r\n");
+      out.write("            <div id=\"page-wrapper\">\r\n");
+      out.write("                <div class=\"container-fluid\">\r\n");
+      out.write("                    <h1 class=\"page-header\">\r\n");
+      out.write("                        <small>Mantenimiento Salas</small>\r\n");
+      out.write("                    </h1>\r\n");
+      out.write("                    <div class=\"panel panel-default\">\r\n");
+      out.write("                        <div class=\"panel-heading\">\r\n");
+      out.write("                            <h3 class=\"panel-title\"><i></i> Agregar Nueva Sala</h3>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"panel-body\">                            \r\n");
+      out.write("                            <div class=\"row\">   \r\n");
+      out.write("                                <form action=\"guardar_datos_sala.htm\" method=\"POST\">\r\n");
+      out.write("                                    <div class=\"col-lg-6\">\r\n");
+      out.write("                                        \r\n");
+      out.write("                                     \r\n");
+      out.write("                                        \r\n");
+      out.write("                                        <div class=\"form-group\">\r\n");
+      out.write("                                            <label>Numero de Asientos</label>\r\n");
+      out.write("                                            <input class=\"form-control\" placeholder=\"Numero de asientos\" name=\"nro_asientos\">\r\n");
+      out.write("\r\n");
+      out.write("                                        </div> \r\n");
+      out.write("                                        \r\n");
+      out.write("                                        <div class=\"form-group\">\r\n");
+      out.write("                                            <label>Asientos</label>\r\n");
+      out.write("                                            <input class=\"form-control\" id=\"asientos\" placeholder=\"Cadena de Asientos\" name=\"asientos\">\r\n");
+      out.write("                                            <div class=\"form-group\"></div>\r\n");
+      out.write("                                            <button type=\"button\" class=\"btn btn-success btn-md\" onclick=\"crearSala()\">Generar Asientos</button>           \r\n");
+      out.write("                                        </div> \r\n");
+      out.write("                                        \r\n");
+      out.write("                                        \r\n");
+      out.write("                                        \r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                    \r\n");
+      out.write("                                    <div class=\"col-lg-6\">\r\n");
+      out.write("                                        <div class=\"form-group\">\r\n");
+      out.write("                                              <label>Abrir Imagen de la Pelicula</label>\r\n");
+      out.write("                                               <input type=\"file\" id=\"imagen\" name=\"files[]\"/>\r\n");
+      out.write("                                                <br />\r\n");
+      out.write("                                                <output id=\"list\"></output>                                                                       \r\n");
+      out.write("                                        </div>                       \r\n");
+      out.write("                                    </div>    \r\n");
+      out.write("                                    <div class=\"col-lg-12\">\r\n");
+      out.write("                                        <br>\r\n");
+      out.write("                                        <div class=\"form-group\"> \r\n");
+      out.write("                                            <button type=\"button\" class=\"btn btn-success btn-md\" data-toggle=\"modal\" data-target=\"#myModal\">Guardar</button>\r\n");
+      out.write("                                            <button type=\"button\" class=\"btn btn-warning btn-md\" onclick=\"limpiar()\">Limpiar</button>    \r\n");
+      out.write("                                            <button type=\"button\" class=\"btn btn-danger btn-md\" onclick=\"cancelar()\">Cancelar</button> \r\n");
+      out.write("                                             <!-- Modal -->\r\n");
+      out.write("                                            <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n");
+      out.write("                                              <div class=\"modal-dialog\">\r\n");
+      out.write("\r\n");
+      out.write("                                                <!-- Modal content-->\r\n");
+      out.write("                                                <div class=\"modal-content\">\r\n");
+      out.write("                                                  <div class=\"modal-header\">\r\n");
+      out.write("                                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n");
+      out.write("                                                    <h4 class=\"modal-title\">VENTANA DE CONFIRMACION</h4>\r\n");
+      out.write("                                                  </div>\r\n");
+      out.write("                                                  <div class=\"modal-body\">\r\n");
+      out.write("                                                    <p>¿Esta seguro que desea guardar los datos de la pelicula?.</p>\r\n");
+      out.write("                                                  </div>\r\n");
+      out.write("                                                  <div class=\"modal-footer\">\r\n");
+      out.write("                                                     <div class=\"form-group\"> \r\n");
+      out.write("                                                        <input  class=\"btn btn-success btn-md\" type=\"submit\" value=\"Guardar\" ></input> \r\n");
+      out.write("                                                        <button type=\"button\" class=\"btn btn-danger btn-md\" data-dismiss=\"modal\">Cancelar</button>\r\n");
+      out.write("                                                     </div>\r\n");
+      out.write("                                                  </div>\r\n");
+      out.write("                                                </div>\r\n");
+      out.write("\r\n");
+      out.write("                                              </div>\r\n");
+      out.write("                                            </div>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </form>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
+      out.write("        <!--MODALS-->\r\n");
+      out.write("       \r\n");
+      out.write("\r\n");
+      out.write("        <script>\r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
+      out.write("            function cancelar(){\r\n");
+      out.write("                location.href=\"index_peliculas.htm\";\r\n");
+      out.write("            }\r\n");
+      out.write("            function limpiar(){\r\n");
+      out.write("                var inputs = document.getElementsByTagName(\"input\");                \r\n");
+      out.write("                for(var i=0;i<inputs.length;i++){\r\n");
+      out.write("                    if(inputs[i].value != \"Guardar\")\r\n");
+      out.write("                        inputs[i].value = \"\";                      \r\n");
+      out.write("                }\r\n");
+      out.write("                var generos = document.getElementById(\"generos\").getElementsByTagName(\"input\");\r\n");
+      out.write("                for(var i=0;i<inputs.length;i++){\r\n");
+      out.write("                    inputs[i].checked = false;                  \r\n");
+      out.write("                }\r\n");
+      out.write("                document.getElementById(\"sinopsis\").innerHTML = \"\";\r\n");
+      out.write("            }\r\n");
+      out.write("            \r\n");
+      out.write("            function crearSala() {\r\n");
+      out.write("                //var M = [];\r\n");
+      out.write("                \r\n");
+      out.write("                \r\n");
+      out.write("                var tot = 21*13;//273\r\n");
+      out.write("                var asientos = \"\";\r\n");
+      out.write("                \r\n");
+      out.write("                for(var v = 0; v < tot; v++) {\r\n");
+      out.write("                    asientos += \"0\";\r\n");
+      out.write("                }\r\n");
+      out.write("                \r\n");
+      out.write("                \r\n");
+      out.write("                \r\n");
+      out.write("                console.log(asientos);\r\n");
+      out.write("                document.getElementById(\"asientos\").value = asientos;\r\n");
+      out.write("                \r\n");
+      out.write("            }\r\n");
+      out.write("            \r\n");
+      out.write("            function actualizar_genero(){\r\n");
+      out.write("                var generos = document.getElementById(\"generos\").getElementsByTagName(\"input\");\r\n");
+      out.write("                var lista_generos = \"\";\r\n");
+      out.write("                for(var i=0;i<generos.length;i++){\r\n");
+      out.write("                    if(generos[i].checked){\r\n");
+      out.write("                        if(lista_generos != \"\")\r\n");
+      out.write("                            lista_generos = lista_generos + \",\";\r\n");
+      out.write("                        lista_generos = lista_generos + generos[i].getAttribute(\"id\");\r\n");
+      out.write("                        \r\n");
+      out.write("                    }                \r\n");
+      out.write("                }\r\n");
+      out.write("                document.getElementById(\"genero\").value = lista_generos;\r\n");
+      out.write("                \r\n");
+      out.write("            }\r\n");
+      out.write("            function archivo(evt) {\r\n");
+      out.write("                var files = evt.target.files; // FileList object\r\n");
+      out.write("                // Obtenemos la imagen del campo \"file\".\r\n");
+      out.write("                for (var i = 0, f; f = files[i]; i++) {\r\n");
+      out.write("                  //Solo admitimos imágenes.\r\n");
+      out.write("                  if (!f.type.match('image.*')) {\r\n");
+      out.write("                      continue;\r\n");
+      out.write("                  }\r\n");
+      out.write("                  var reader = new FileReader();\r\n");
+      out.write("                  reader.onload = (function(theFile) {\r\n");
+      out.write("                      return function(e) {\r\n");
+      out.write("                        // Insertamos la imagen\r\n");
+      out.write("                       document.getElementById(\"list\").innerHTML = ['<img class=\"thumb\" src=\"', e.target.result,'\" title=\"', escape(theFile.name), '\"/>'].join('');\r\n");
+      out.write("                      };\r\n");
+      out.write("                  })(f);\r\n");
+      out.write("                  reader.readAsDataURL(f);\r\n");
+      out.write("                }\r\n");
+      out.write("            }\r\n");
+      out.write("            document.getElementById('imagen').addEventListener('change', archivo, false);\r\n");
+      out.write("        </script>   \r\n");
+      out.write("        <!-- jQuery -->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/js/jquery.js\"></script>\r\n");
+      out.write("        <!-- Bootstrap Core JavaScript -->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/js/bootstrap.min.js\"></script>\r\n");
+      out.write("        <!-- Morris Charts JavaScript -->\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/js/plugins/morris/raphael.min.js\"></script>\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/js/plugins/morris/morris.min.js\"></script>\r\n");
+      out.write("        <script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/recursos/js/plugins/morris/morris-data.js\"></script>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
