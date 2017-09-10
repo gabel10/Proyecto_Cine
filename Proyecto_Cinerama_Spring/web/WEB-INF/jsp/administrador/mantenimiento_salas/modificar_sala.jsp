@@ -1,8 +1,3 @@
-<%-- 
-    Document   : agregar_sala
-    Created on : 04/09/2017, 12:08:31 AM
-    Author     : Usuario
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +27,7 @@
           }
         </style>        
     </head>
-    <body>
+    <body onload="cargar_butacas()">
         <div id="wrapper">
             <jsp:include page="../header_menu.jsp"/>
             <div id="page-wrapper">
@@ -42,15 +37,15 @@
                     </h1>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i></i> Agregar Nueva Sala</h3>
+                            <h3 class="panel-title"><i></i> Modificar Sala</h3>
                         </div>
                         <div class="panel-body">                            
                             <div class="row">   
-                                <form action="guardar_datos_sala.htm" method="POST" id="formulario">
+                                <form action="modificar_datos_sala.htm" method="POST" id="formulario">
                                     <div class="col-lg-8">
                                     <div class="form-group">
                                         <label>Numero de Sala</label>
-                                        <input class="form-control" placeholder="Ingrese numero de sala" name="numero">
+                                        <input class="form-control" placeholder="Ingrese numero de sala" name="numero" value="${id}">
                                     </div>
                                     </div>                        
                                     <div class="col-lg-8">
@@ -59,9 +54,9 @@
                                             <label>Mapa de la Sala</label>
                                               <div class="form-group">
                                                     <label>Filas</label>
-                                                    <input class="" placeholder="" id="filas" name="filas"><br>
+                                                    <input class="" placeholder="" id="filas" name="filas" value="${dato.get("filas")}"><br>
                                                     <label>Columnas</label>
-                                                    <input class="" placeholder="" id="columnas" name="columnas">
+                                                    <input class="" placeholder="" id="columnas" name="columnas" value="${dato.get("columnas")}">
                                                     <button type="button" class="btn btn-warning btn-md" id="btnConstruir" onclick="fnGenerarButacas()">Generar</button>  
                                                 </div>
                                             <div id="map-container">
@@ -74,7 +69,7 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <input id="butacas" type="text" name="butacas"style="display:none;">                                                
+                                                <input id="butacas" type="text" name="butacas"style="display:none;" value="${dato.get("butacas")}">                                                
                                             </div>
                                         </div>
 
@@ -108,6 +103,24 @@
             var filas=0;
             var columnas = 0;
             var letras = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+            function cargar_butacas(){
+                
+                
+                filas = document.getElementById("filas").value;
+                columnas = document.getElementById("columnas").value; 
+                fnGenerarButacas();
+                var butacas = document.getElementById("butacas").value
+                var array_b = butacas.split("");                
+                array_butacas = array_b;
+                for(var i = 0;i<array_butacas.length;i++){
+                    if(array_butacas[i] == "0"){
+                        click_butaca(i);
+                    }
+                }
+                //alert(cont);
+                asignar_numero_butacas();
+            }
 
             function enviar_form(){
                 llenar_input_butacas();
@@ -221,7 +234,7 @@
                // alert(butaca.name);
                asignar_numero_butacas();
 
-            }   
+            }
         </script>
         
         <script src="${pageContext.request.contextPath}/recursos/js/jquery.js"></script>

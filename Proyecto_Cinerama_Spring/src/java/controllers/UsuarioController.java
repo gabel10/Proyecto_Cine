@@ -42,7 +42,7 @@ public class UsuarioController extends Conexion{
         
     @RequestMapping("menu.htm")
     public ModelAndView menu(HttpServletRequest request,HttpServletResponse response) throws IOException{
-        HttpSession sesion = request.getSession();
+        /*HttpSession sesion = request.getSession();
         String nombre_pagina = "";
         if(sesion.getAttribute("usuario") == null){
             response.sendRedirect("home.htm");
@@ -55,8 +55,8 @@ public class UsuarioController extends Conexion{
                 response.sendRedirect("home.htm");
                 nombre_pagina = "home";
             }
-        }
-        return new ModelAndView(nombre_pagina);
+        }*/
+        return new ModelAndView("administrador/menu");
     }
     
     @RequestMapping("confirmacion_registro.htm")

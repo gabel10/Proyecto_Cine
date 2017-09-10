@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -19,6 +18,7 @@
         <!-- Custom Fonts -->
         <link href="${pageContext.request.contextPath}/recursos/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link type="image/x-icon" rel="shortcut icon" href="${pageContext.request.contextPath}/recursos/images/favicon.png">
+        
     </head>
     <body>
         <div id="wrapper">
@@ -30,50 +30,18 @@
                     </h1>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i></i> Lista de Salas</h3>
+                            <h3 class="panel-title"><i></i> </h3>
                         </div>
-                        <div class="panel-body">
-                            <a type="button" class="btn btn-success btn-lg" href="agregar_sala.htm"> + Agregar Sala</a><br><br>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>NroSala</th>
-                                            <th>Cant. Butacas</th>
-                                            <th>Operaciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>                                        
-                                        <c:forEach items="${datos}" var="dato">
-                                            <tr>
-                                                <td>${dato.get("_id")}</td>
-                                                <td>${dato.get("cant_butacas") }</td>
-                                                <td>
-                                                    <a id="${dato.get("_id")}"type="button" class="btn btn-warning" onclick="fnEditar(this)">Editar</a>
-                                                    <a id="${dato.get("_id")}" type="button" class="btn btn-info" onclick="fnverDetalles(this)">Ver Detalles</a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-right">
-                                <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
+                        <h3>Se guardaron los datos correctamente</h3><br>                        
+                        <label>Numero de Sala : ${datos.getId()}</label>   <br>                     
+                        <label>Numero de butacas : ${datos.getCant_butacas()}</label><br>                       
+                        <label>Butacas : ${datos.getButacas()}</label><br>    
+                        <a type="button" class="btn btn-success btn-lg" href="index_salas.htm">Aceptar</a><br><br>
+
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-        
-            function fnEditar(comp){
-                 location.href="modificar_sala.htm?id="+comp.id;
-            }
-            function fnverDetalles(comp){
-                 location.href="detalle_sala.htm?id="+comp.id;
-            }
-        </script>
         
         <!-- jQuery -->
         <script src="${pageContext.request.contextPath}/recursos/js/jquery.js"></script>

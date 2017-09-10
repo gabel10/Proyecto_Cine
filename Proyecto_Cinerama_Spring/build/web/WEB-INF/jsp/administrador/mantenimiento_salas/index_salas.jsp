@@ -40,10 +40,20 @@
                                         <tr>
                                             <th>NroSala</th>
                                             <th>Cant. Butacas</th>
+                                            <th>Operaciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>                                        
-                                        
+                                        <c:forEach items="${datos}" var="dato">
+                                            <tr>
+                                                <td>${dato.get("_id")}</td>
+                                                <td>${dato.get("cant_butacas") }</td>
+                                                <td>
+                                                    <a id="${dato.get("_id")}"type="button" class="btn btn-warning" onclick="fnEditar(this)">Editar</a>
+                                                    <a id="${dato.get("_id")}" type="button" class="btn btn-info" onclick="fnverDetalles(this)">Ver Detalles</a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -58,10 +68,10 @@
         <script>
         
             function fnEditar(comp){
-                 location.href="modificar_pelicula.htm?id="+comp.id;
+                 location.href="modificar_sala.htm?id="+comp.id;
             }
             function fnverDetalles(comp){
-                 location.href="detalle_pelicula.htm?id="+comp.id;
+                 location.href="detalle_sala.htm?id="+comp.id;
             }
         </script>
         

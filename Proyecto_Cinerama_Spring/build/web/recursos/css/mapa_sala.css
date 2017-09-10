@@ -8,9 +8,16 @@
     background-size: contain;
     margin: auto;
     padding-top: 5px;
+    justify-content: center;
 }
 #map-container {
-    background-color: #EEE;
+    background-color: #FFF;
+    margin-bottom: 10px;
+    overflow: auto;
+    overflow-x: scroll;
+}
+#lista-imagenes {
+    background-color: #FFF;
     margin-bottom: 10px;
     overflow: auto;
 }

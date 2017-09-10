@@ -95,8 +95,8 @@ public class ReservaController {
         
         Sala sala_n = new Sala();
         sala_n.setId(id_sala);
-        sala_n.setNro_asientos(sala.get("nro_asientos").toString());
-        sala_n.setAsientos(asientos_nuevos);
+        //sala_n.setNro_asientos(sala.get("nro_asientos").toString());
+        //sala_n.setAsientos(asientos_nuevos);
         
         sala_n.Actualizar();
             

@@ -18,28 +18,29 @@ public class Sala extends Conexion {
     protected final MongoCollection<Document> collection = database.getCollection("salas");
     
     private String id;
-    private String nro_asientos;
-    private String asientos;
+    private String filas;
+    private String columnas;
+    private String butacas;
+    private String cant_butacas;
+
+    public Sala(String id, String filas, String columnas, String butacas, String cant_butacas) {
+        this.id = id;
+        this.filas = filas;
+        this.columnas = columnas;
+        this.butacas = butacas;
+        this.cant_butacas = cant_butacas;
+    }
 
     public Sala() {
-    }
-
-    public Sala(String nro_asientos, String asientos) {
-        this.nro_asientos = nro_asientos;
-        this.asientos = asientos;
-    }
-    
+    } 
     public void Insertar(){
         
-        Document datos = new Document();
-        Object id_pelicula = getNextSequence("salaid");
-        this.setId(id_pelicula.toString());       
-        
+        Document datos = new Document(); 
         datos.append("_id", this.getId());
-        datos.append("nro_asientos", this.getNro_asientos());
-        datos.append("asientos", this.getAsientos());
-       
-        
+        datos.append("filas", this.getFilas());
+        datos.append("columnas", this.getColumnas());
+        datos.append("butacas", this.getButacas());      
+        datos.append("cant_butacas", this.getCant_butacas());      
         try{
             collection.insertOne(datos);
         }
@@ -50,8 +51,10 @@ public class Sala extends Conexion {
     public void Actualizar(){
         Document datos = new Document();              
         datos.append("_id", this.getId());
-        datos.append("nro_asientos", this.getNro_asientos());
-        datos.append("asientos", this.getAsientos());   
+        datos.append("filas", this.getFilas());
+        datos.append("columnas", this.getColumnas());
+        datos.append("butacas", this.getButacas());   
+        datos.append("cant_butacas", this.getCant_butacas());     
         
         BasicDBObject query = new BasicDBObject();
         query.append("_id", this.getId());
@@ -81,30 +84,48 @@ public class Sala extends Conexion {
 				new ArrayList<Document>());
         return documentos;
     }
-    
 
     public String getId() {
         return id;
+    }
+
+    public String getFilas() {
+        return filas;
+    }
+
+    public String getColumnas() {
+        return columnas;
+    }
+
+    public String getButacas() {
+        return butacas;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getNro_asientos() {
-        return nro_asientos;
+    public void setFilas(String filas) {
+        this.filas = filas;
     }
 
-    public void setNro_asientos(String nro_asientos) {
-        this.nro_asientos = nro_asientos;
+    public void setColumnas(String columnas) {
+        this.columnas = columnas;
     }
 
-    public String getAsientos() {
-        return asientos;
+    public void setButacas(String butacas) {
+        this.butacas = butacas;
+    }
+    public int getNroButacas(){
+        return Integer.valueOf(getFilas())*Integer.valueOf(getColumnas());
     }
 
-    public void setAsientos(String asientos) {
-        this.asientos = asientos;
+    public String getCant_butacas() {
+        return cant_butacas;
+    }
+
+    public void setCant_butacas(String cant_butacas) {
+        this.cant_butacas = cant_butacas;
     }
     
     
