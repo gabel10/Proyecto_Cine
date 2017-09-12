@@ -61,6 +61,11 @@
                 <prop key="reservarbutacas.htm">reservaController</prop>
                 <prop key="confirmacion_reserva.htm">reservaController</prop>
                 
+                <!-- Imagen -->
+                <prop key="procesar_subida_imagen.htm">imagenController</prop>
+                <prop key="mostrar_imagen.htm">imagenController</prop>
+                <prop key="lista_imagenes.htm">imagenController</prop>
+                
             </props>
         </property>
     </bean>
@@ -79,7 +84,7 @@
     <bean name="salaController" class="controllers.SalaController"/>
     <bean name="reservaController" class="controllers.ReservaController"/>
     <bean name="funcionController" class="controllers.FuncionController"/>
-    
+    <bean name="imagenController" class="controllers.ImagenController"/>
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
