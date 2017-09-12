@@ -49,7 +49,7 @@
                         <%if(usuario != "Iniciar Sesión"){%>
                         <li class="last">
                             <% sesion.setAttribute("logout","true");%>
-                            <a href="home.htm">Salir</a>
+                            <a href="logout.htm">Salir</a>
                         </li>    
                         <%}%>
                     </ul>

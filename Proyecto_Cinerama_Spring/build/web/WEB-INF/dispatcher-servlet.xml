@@ -30,6 +30,7 @@
                 <prop key="panel.htm">usuarioController</prop>    
                 <prop key="paneldatos.htm">usuarioController</prop>       
                 <prop key="panel_contraseña.htm">usuarioController</prop>   
+                <prop key="logout.htm">usuarioController</prop>
                 <!-- Pelicula -->
                 <prop key="index_peliculas.htm">peliculaController</prop>
                 <prop key="agregar_pelicula.htm">peliculaController</prop>

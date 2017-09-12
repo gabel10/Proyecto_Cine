@@ -21,13 +21,6 @@ public class HomeController {
     
     @RequestMapping("home.htm")
     public ModelAndView home(HttpServletRequest request){
-        HttpSession sesion = request.getSession();
-        if(request != null){
-            if(sesion.getAttribute("logout") != null){
-                if("true".equals(sesion.getAttribute("logout").toString()))
-                    sesion.invalidate();
-            }
-        }
         ModelAndView v = new ModelAndView();
         v.setViewName("home");
         return v;
@@ -37,4 +30,5 @@ public class HomeController {
     public ModelAndView contactanos(){
         return new ModelAndView("contactanos");
     }
+    
 }

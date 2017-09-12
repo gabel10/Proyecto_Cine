@@ -214,4 +214,12 @@ public class UsuarioController extends Conexion{
         }
         return v;
     }
+    
+    @RequestMapping("logout.htm")
+    public ModelAndView logout(HttpServletRequest request,HttpServletResponse response) throws IOException{
+        ModelAndView v = new ModelAndView();
+        v.setViewName("home");
+        response.sendRedirect("home.htm");
+        return v;
+    }
 }
