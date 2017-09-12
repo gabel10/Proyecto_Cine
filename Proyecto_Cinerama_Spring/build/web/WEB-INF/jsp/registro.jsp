@@ -159,7 +159,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-6 col-xs-12 login-right">
                             <div>
                                 <span>Dirección<label>*</label></span>
-                                <input type="text" name="direccion" pattern="[A-Za-z ]{6,}" required>
+                                <input type="text" name="direccion" pattern="[A-Za-z0-9.- ]{6,}" required>
                             </div>
                         </div>    
                         <h3>Información de Inicio de Sesión</h3>

@@ -1320,7 +1320,8 @@ text-transform: uppercase;
 }
 .login-right input[type="text"], .login-left select, .login-left input[type="text"], 
 .login-left input[type="email"], .login-right input[type="tel"], .login-right input[type="date"],
-.login-left input[type="password"], .login-right input[type="password"]{
+.login-left input[type="password"], .login-right input[type="password"],
+.login-right input[type="email"], .login-right textarea {
 	border: 1px solid #E4E4E4;
 	outline-color:#d8232a;
 	width: 96%;

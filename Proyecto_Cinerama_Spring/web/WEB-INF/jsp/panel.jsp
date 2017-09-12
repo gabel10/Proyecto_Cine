@@ -70,7 +70,7 @@
                         </div>
                         <div id="datos" style="display:none;">
                             <div class="register">
-                               <form name="Registrar" method="post" action="panel.htm">
+                               <form name="Registrar" method="post" action="paneldatos.htm">
                                     <h3>Información Personal</h3>
                                     <div class="col-md-6 col-xs-12 login-left">
                                         <div>
@@ -143,31 +143,31 @@
                                             <span>Departamento<label>*</label></span>
                                             <select name="departamento"  required>
                                                 <option value="${user.get("departamento")}" selected>${user.get("departamento")}</option>
-                                                <option value="Amazonas">Amazonas</option>
-                                                <option value="Áncash">Áncash</option>
-                                                <option value="Apurímac">Apurímac</option>
-                                                <option value="Arequipa" >Arequipa</option>
-                                                <option value="Ayacucho" >Ayacucho</option>
-                                                <option value="Cajamarca" >Cajamarca</option>
-                                                <option value="Callao" >Callao</option>
-                                                <option value="Cusco" >Cusco</option>
-                                                <option value="Huancavelica" >Huancavelica</option>
-                                                <option value="Huánuco" >Huánuco</option>
-                                                <option value="Ica" >Ica</option>
-                                                <option value="Junín" >Junín</option>
-                                                <option value="La Libertad" >La Libertad</option>
-                                                <option value="Lambayeque" >Lambayeque</option>
-                                                <option value="Lima" >Lima</option>
-                                                <option value="Loreto" >Loreto</option>
-                                                <option value="Madre de Dios" >Madre de Dios</option>
-                                                <option value="Moquegua" >Moquegua</option>
-                                                <option value="Pasco" >Pasco</option>
-                                                <option value="Piura" >Piura</option>
-                                                <option value="Puno" >Puno</option>
-                                                <option value="San Martín" >San Martín</option>
-                                                <option value="Tacna" >Tacna</option>
-                                                <option value="Tumbes" >Tumbes</option>
-                                                <option value="Ucayali" >Ucayali</option>
+                                                <option value="AMAZONAS">AMAZONAS</option>
+                                                <option value="ANCASH">ANCASH</option>
+                                                <option value="APURIMAS">APURIMAS</option>
+                                                <option value="AREQUIPA" >AREQUIPA</option>
+                                                <option value="AYACUCHO" >AYACUCHO</option>
+                                                <option value="CAJAMARCA" >CAJAMARCA</option>
+                                                <option value="CALLAO" >CALLAO</option>
+                                                <option value="CUSCO" >CUSCO</option>
+                                                <option value="HUANCAVELICA" >HUANCAVELICA</option>
+                                                <option value="HUACNUCO" >HUACNUCO</option>
+                                                <option value="ICA" >ICA</option>
+                                                <option value="JUNIN" >JUNIN</option>
+                                                <option value="LA LIBERTAD" >LA LIBERTAD</option>
+                                                <option value="LAMBAYEQUE" >LAMBAYEQUE</option>
+                                                <option value="LIMA" >LIMA</option>
+                                                <option value="LORETO" >LORETO</option>
+                                                <option value="MADRE DE DIOS" >MADRE DE DIOS</option>
+                                                <option value="MOQUEGUA" >MOQUEGUA</option>
+                                                <option value="PASCO" >PASCO</option>
+                                                <option value="PIURA" >PIURA</option>
+                                                <option value="PUNO" >PUNO</option>
+                                                <option value="SAN MARTIN" >SAN MARTIN</option>
+                                                <option value="TACNA" >TACNA</option>
+                                                <option value="TUMBES" >TUMBES</option>
+                                                <option value="UCAYALI" >UCAYALI</option>
                                             </select>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                                     <div class="col-md-6 col-xs-12 login-right">
                                         <div>
                                             <span>Dirección<label>*</label></span>
-                                            <input type="text" name="direccion" pattern="[A-Za-z ]{6,}" value="${user.get("direccion")}" required>
+                                            <input type="text" name="direccion" pattern="[A-Za-z0-9.- ]{6,}" value="${user.get("direccion")}" required>
                                         </div>
                                     </div>    
                                     <br>
@@ -198,23 +198,23 @@
                             </div>
                         </div>
                         <div id="contraseña" style="display:none;">
-                            <form name="Registrar" method="post" action="panel.htm">
+                            <form name="Registrar" method="post" action="panel_contraseña.htm">
                                 <div class="col-md-4 col-xs-12 login-left">
                                     <div>
                                         <span>Contraseña Actual<label>*</label></span>
-                                        <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                        <input title="Contraseña debe contener 8 caracteres, incluyendo un numero, una letra en mayúscula y una en minúscula" type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xs-12 login-left">
                                     <div>
                                         <span>Nueva Contraseña<label>*</label></span>
-                                        <input type="password" name="new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                        <input title="Contraseña debe contener 8 caracteres, incluyendo un numero, una letra en mayúscula y una en minúscula" type="password" name="new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                     </div>
                                 </div> 
                                 <div class="col-md-4 col-xs-12 login-left">
                                     <div>
                                         <span>Confirmar Nueva Contraseña<label>*</label></span>
-                                        <input type="password" name="confirm_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                        <input title="Debe ser igual al campo Nueva Contraseña" type="password" name="confirm_new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                     </div>
                                 </div> 
                                 <div class="clearfix"> </div>

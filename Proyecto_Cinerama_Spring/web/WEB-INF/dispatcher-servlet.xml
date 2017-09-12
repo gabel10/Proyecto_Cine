@@ -21,12 +21,15 @@
             <props>
                 <prop key="index">indexController</prop>
                 <prop key="home.htm">homeController</prop>
+                <prop key="contactanos.htm">homeController</prop>
                 <prop key="login.htm">usuarioController</prop>
                 <prop key="registro.htm">usuarioController</prop>
                 <prop key="confirmacion_registro.htm">usuarioController</prop>
                 <prop key="menu.htm">usuarioController</prop>
                 <prop key="iniciar_sesion.htm">usuarioController</prop>  
-                <prop key="panel.htm">usuarioController</prop>              
+                <prop key="panel.htm">usuarioController</prop>    
+                <prop key="paneldatos.htm">usuarioController</prop>       
+                <prop key="panel_contraseña.htm">usuarioController</prop>   
                 <!-- Pelicula -->
                 <prop key="index_peliculas.htm">peliculaController</prop>
                 <prop key="agregar_pelicula.htm">peliculaController</prop>

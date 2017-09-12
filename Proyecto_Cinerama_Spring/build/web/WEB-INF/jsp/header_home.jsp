@@ -35,7 +35,7 @@
                                     <li id="cartelera"><a href="#">Cartelera <span class="sr-only">(current)</span></a></li>
                                     <li id="estrenos"><a href="#">Próximos Estrenos</a></li>
                                     <li id="cines"><a href="#">Cines</a></li>
-                                    <li id="contactanos"><a href="#">Contáctanos</a></li>
+                                    <li id="contactanos"><a href="contactanos.htm">Contáctanos</a></li>
                                 </ul>
                             </div><!-- /.navbar-collapse -->
                       </div><!-- /.container-fluid -->

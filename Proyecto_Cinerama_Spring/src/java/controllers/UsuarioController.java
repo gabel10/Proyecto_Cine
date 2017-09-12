@@ -158,4 +158,60 @@ public class UsuarioController extends Conexion{
         }
         return v;
     }
+    @RequestMapping("paneldatos.htm")
+    public ModelAndView datos_usuario(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        HttpSession sesion = request.getSession();
+        ModelAndView v = new ModelAndView();
+        if(request != null){
+            Usuario usuario = new Usuario();
+            String id= sesion.getAttribute("id").toString();
+            usuario.setId(id);
+            usuario.setEmail(request.getParameter("correo_electronico"));
+            usuario.setTelefono(request.getParameter("telefono"));
+            usuario.setDepartamento(request.getParameter("departamento"));
+            usuario.setProvincia(request.getParameter("provincia"));
+            usuario.setDistrito(request.getParameter("distrito"));
+            usuario.setDireccion(request.getParameter("direccion"));
+            usuario.setEstado_civil(request.getParameter("estado_civil"));
+            usuario.setOcupacion(request.getParameter("ocupacion"));
+            usuario.actualizar();
+            Usuario user = new Usuario();
+            user.setId(id);
+            Document u = user.Obtener_Datos();
+            v.setViewName("panel");
+            v.addObject("user",u);
+        }else{
+            response.sendRedirect("panel.htm");
+            v.setViewName("panel");
+        }
+        return v;
+    }
+    @RequestMapping("panel_contraseña")
+    public ModelAndView contrasena(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        HttpSession sesion = request.getSession();
+        ModelAndView v = new ModelAndView();
+        if(request != null){
+            String contrasena_actual = request.getParameter("password");
+            String nueva_contrasena = request.getParameter("new_password");
+            String con_nueva_contraseña = request.getParameter("confirm_new_password");
+            String id = sesion.getAttribute("id").toString();
+            Usuario user = new Usuario();
+            user.setId(id);
+            user.setContraseña(contrasena_actual);
+            Document u = user.Iniciar_Sesion();
+            if(u != null && nueva_contrasena.equals(con_nueva_contraseña)){
+                user.setContraseña(nueva_contrasena);
+                user.actualizar_contraseña();
+            }
+            Usuario usuario = new Usuario();
+            usuario.setId(id);
+            Document us = usuario.Obtener_Datos();
+            v.setViewName("panel");
+            v.addObject("user",us);
+        }else{
+            response.sendRedirect("panel.htm");
+            v.setViewName("panel");
+        }
+        return v;
+    }
 }

@@ -5,15 +5,18 @@
  */
 package models;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.model.UpdateOptions;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -97,6 +100,39 @@ public class Usuario extends Conexion{
         catch(Exception e){            
         }
     }
+    public void actualizar(){
+        Document datos = new Document();              
+        datos.append("_id", this.getId());
+        datos.append("email", this.getEmail());
+        datos.append("telefono", this.getTelefono());
+        datos.append("departamento", this.getDepartamento());
+        datos.append("provincia", this.getProvincia());
+        datos.append("distrito", this.getDistrito());
+        datos.append("direccion", this.getDireccion());
+        datos.append("estado_civil", this.getEstado_civil());
+        datos.append("ocupacion", this.getOcupacion());
+        BasicDBObject query = new BasicDBObject();
+        query.append("_id", this.getId());
+        Bson newDocument = new Document("$set", datos);
+        try {
+            collection.updateOne(query, newDocument,(new UpdateOptions()).upsert(true));
+        } 
+        catch (Exception e) {
+        }
+    }
+    public void actualizar_contraseña(){
+        Document datos = new Document();              
+        datos.append("_id", this.getId());
+        datos.append("contraseña", this.getContraseña());
+        BasicDBObject query = new BasicDBObject();
+        query.append("_id", this.getId());
+        Bson newDocument = new Document("$set", datos);
+        try {
+            collection.updateOne(query, newDocument,(new UpdateOptions()).upsert(true));
+        } 
+        catch (Exception e) {
+        }
+    }
     
     public Document Iniciar_Sesion(){
         //Document myDoc = collection.find(eq("_id", getId())).first();
@@ -138,7 +174,7 @@ public class Usuario extends Conexion{
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        this.nombres = nombres.toUpperCase();
     }
 
     public String getApellido_paterno() {
@@ -146,7 +182,7 @@ public class Usuario extends Conexion{
     }
 
     public void setApellido_paterno(String apellido_paterno) {
-        this.apellido_paterno = apellido_paterno;
+        this.apellido_paterno = apellido_paterno.toUpperCase();
     }
 
     public String getApellido_materno() {
@@ -154,7 +190,7 @@ public class Usuario extends Conexion{
     }
 
     public void setApellido_materno(String apellido_materno) {
-        this.apellido_materno = apellido_materno;
+        this.apellido_materno = apellido_materno.toUpperCase();
     }
 
     public String getFecha_nacimiento() {
@@ -186,7 +222,7 @@ public class Usuario extends Conexion{
     }
 
     public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+        this.departamento = departamento.toUpperCase();
     }
 
     public String getProvincia() {
@@ -194,7 +230,7 @@ public class Usuario extends Conexion{
     }
 
     public void setProvincia(String provincia) {
-        this.provincia = provincia;
+        this.provincia = provincia.toUpperCase();
     }
 
     public String getDistrito() {
@@ -202,7 +238,7 @@ public class Usuario extends Conexion{
     }
 
     public void setDistrito(String distrito) {
-        this.distrito = distrito;
+        this.distrito = distrito.toUpperCase();
     }
 
     public String getDireccion() {
@@ -210,7 +246,7 @@ public class Usuario extends Conexion{
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion = direccion.toUpperCase();
     }
 
     public String getEstado_civil() {
@@ -226,7 +262,7 @@ public class Usuario extends Conexion{
     }
 
     public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
+        this.ocupacion = ocupacion.toUpperCase();
     }
 
     public String getFecha_afiliacion() {

@@ -33,4 +33,8 @@ public class HomeController {
         return v;
     }
     
+    @RequestMapping("contactanos.htm")
+    public ModelAndView contactanos(){
+        return new ModelAndView("contactanos");
+    }
 }
