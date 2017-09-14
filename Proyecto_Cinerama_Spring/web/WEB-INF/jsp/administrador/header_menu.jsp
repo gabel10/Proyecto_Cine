@@ -46,7 +46,7 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Mantenimiento <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="">Usuarios</a>
+                        <a href="index_usuarios.htm">Usuarios</a>
                     </li>
                     <li>
                         <a href="">Clientes</a>

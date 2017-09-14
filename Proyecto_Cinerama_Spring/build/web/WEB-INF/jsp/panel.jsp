@@ -66,7 +66,69 @@
                           </div>
                         </nav>
                         <div id="historial">
-                            <h3>hols este es el historial</h3>
+                            <div class="col-md-12 col-xs-12" style="background-color: rgba(0,128,255,0.4);">
+                                <div class="col-md-4 col-xs-12" >
+                                    <div class="table-responsive">
+                                        <table class="table"><br>
+                                            <h3>PUNTOS</h3>
+                                            <tbody>
+                                                <tr><td>Acumulados:</td><td>100</td></tr>
+                                                <tr><td>Disponibles:</td><td>4</td></tr>
+                                                <tr><td>Utilizados:</td><td>95</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table"><br>
+                                            <h3>VAUCHERS</h3>
+                                            <thead>
+                                            <td>Número de vaucher</td>
+                                            <td>Fecha de vencimiento</td>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>8798767345</td><td>12/10/1995</td></tr>
+                                                <tr><td>Disponibles:</td><td>4</td></tr>
+                                                <tr><td>Utilizados:</td><td>95</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table"><br>
+                                            <h3>VISITAS</h3>
+                                            <tbody>
+                                                <tr><td>Número de visitas:</td><td>12/10/1995</td></tr>
+                                                <tr><td>Última visita</td><td>4</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-12 col-xs-12" style="background-color: rgba(0,204,204,0.3);">
+                                 <div class="table-responsive">
+                                     <table class="table table-striped"><br>
+                                        <h3>Mis Últimas Transacciones</h3>
+                                        <thead style="font-weight: bold;">
+                                        <td>Película</td>
+                                        <td>Fecha Función</td>
+                                        <td>Complejo</td>
+                                        <td>Venta</td>
+                                        <td>Cantidad</td>
+                                        <td>Puntos</td>
+                                        <td>Opciones</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>EL PLANETA DE LOS SIMIOS LA GUERRA</td><td>29/08/2017 17:20 PM</td><td>CUSCO</td><td>S/. 16,00</td><td>2</td><td>2</td><td>Transferir</td></tr>
+                                            <tr><td>EL PLANETA DE LOS SIMIOS LA GUERRA</td><td>29/08/2017 17:20 PM</td><td>CUSCO</td><td>S/. 16,00</td><td>2</td><td>2</td><td>Cancelar</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
                         <div id="datos" style="display:none;">
                             <div class="register">

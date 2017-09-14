@@ -222,4 +222,49 @@ public class UsuarioController extends Conexion{
         response.sendRedirect("home.htm");
         return v;
     }
+    @RequestMapping("index_usuarios.htm")
+    public ModelAndView index_usuarios(){
+        ModelAndView v = new ModelAndView();
+        v.addObject("datos", new Usuario().getListaUsuarios());
+        v.setViewName("administrador/mantenimiento_usuarios/index_usuarios");
+        return v;
+    }
+    @RequestMapping("agregar_usuario.htm")
+    public ModelAndView agregar_usuario(){
+        ModelAndView v = new ModelAndView();
+        v.setViewName("administrador/mantenimiento_usuarios/agregar_usuario");
+        return v;
+    }
+    @RequestMapping("guardar_datos_usuario.htm")
+    public ModelAndView guardar_datos_usuario(HttpServletRequest request,HttpServletResponse response) throws ParseException, IOException{
+        if(request != null){
+            Usuario usuario = new Usuario();
+            usuario.setId(request.getParameter("id"));
+            usuario.setContraseña("Cinerama2017");
+            usuario.setNivel_acceso(request.getParameter("nivel_acceso"));
+            usuario.setNombres(request.getParameter("nombres"));
+            usuario.setApellido_paterno(request.getParameter("apellido_paterno"));
+            usuario.setApellido_materno(request.getParameter("apellido_materno"));
+            usuario.setFecha_nacimiento(request.getParameter("fecha_nacimiento"));
+            usuario.setEmail(request.getParameter("email"));
+            usuario.setTelefono(request.getParameter("telefono"));
+            usuario.setDepartamento(request.getParameter("departamento"));
+            usuario.setProvincia(request.getParameter("provincia"));
+            usuario.setDistrito(request.getParameter("distrito"));
+            usuario.setDireccion(request.getParameter("direccion"));
+            usuario.setEstado_civil(request.getParameter("estado_civil"));
+            usuario.setOcupacion(request.getParameter("ocupacion"));
+            usuario.setTipo_documento(request.getParameter("tipo_documento"));
+            usuario.setFecha_afiliacion();
+            usuario.insertar();
+            ModelAndView v = new ModelAndView();
+            v.setViewName("administrador/mantenimiento_usuarios/guardar_datos_usuario");
+            v.addObject("datos", usuario);
+            return v;
+        }
+        else{
+            response.sendRedirect("index_usuarios.htm");
+            return new ModelAndView("index_usuarios");
+        }
+    }
 }

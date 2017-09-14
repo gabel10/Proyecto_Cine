@@ -13,7 +13,9 @@ import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import com.mongodb.client.model.UpdateOptions;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -142,6 +144,11 @@ public class Usuario extends Conexion{
     public Document Obtener_Datos(){
         Document myDoc = collection.find(eq("_id",getId())).first();
         return myDoc;
+    }
+    
+    public List<Document> getListaUsuarios(){
+        List<Document> documentos = (List<Document>) collection.find().into(new ArrayList<>());
+        return documentos;
     }
 
     public String getId() {

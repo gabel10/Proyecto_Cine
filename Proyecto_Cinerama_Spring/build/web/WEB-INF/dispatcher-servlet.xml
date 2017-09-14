@@ -22,6 +22,7 @@
                 <prop key="index">indexController</prop>
                 <prop key="home.htm">homeController</prop>
                 <prop key="contactanos.htm">homeController</prop>
+                <!--Usuario -->
                 <prop key="login.htm">usuarioController</prop>
                 <prop key="registro.htm">usuarioController</prop>
                 <prop key="confirmacion_registro.htm">usuarioController</prop>
@@ -31,6 +32,9 @@
                 <prop key="paneldatos.htm">usuarioController</prop>       
                 <prop key="panel_contraseña.htm">usuarioController</prop>   
                 <prop key="logout.htm">usuarioController</prop>
+                <prop key="index_usuarios.htm">usuarioController</prop>
+                <prop key="agregar_usuario.htm">usuarioController</prop>
+                <prop key="guardar_datos_usuario.htm">usuarioController</prop>
                 <!-- Pelicula -->
                 <prop key="index_peliculas.htm">peliculaController</prop>
                 <prop key="agregar_pelicula.htm">peliculaController</prop>
