@@ -38,6 +38,8 @@ public class Pelicula extends Conexion{
     private String duracion;
     private String fecha_estreno;
     private String sinopsis;
+    private String actores;
+    private String directores;
     private String imagen;
 
     public Pelicula() {
@@ -66,6 +68,9 @@ public class Pelicula extends Conexion{
         datos.append("duracion", this.getDuracion());
         datos.append("fecha_estreno",this.getFecha_estreno());
         datos.append("sinopsis", this.getSinopsis());
+        datos.append("actores", this.getActores());
+        datos.append("directores", this.getDirectores());
+        datos.append("nombre_imagen", this.getImagen());
         
         try{
             collection.insertOne(datos);
@@ -84,6 +89,9 @@ public class Pelicula extends Conexion{
         datos.append("duracion", this.getDuracion());
         datos.append("fecha_estreno",this.getFecha_estreno());
         datos.append("sinopsis", this.getSinopsis());
+        datos.append("actores", this.getActores());
+        datos.append("directores", this.getDirectores());
+        datos.append("nombre_imagen", this.getImagen());
         
         BasicDBObject query = new BasicDBObject();
         query.append("_id", this.getId());
@@ -180,6 +188,31 @@ public class Pelicula extends Conexion{
     public void setSinopsis(String sinopsis) {
         this.sinopsis = sinopsis;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getActores() {
+        return actores;
+    }
+
+    public String getDirectores() {
+        return directores;
+    }
+
+    public void setActores(String actores) {
+        this.actores = actores;
+    }
+
+    public void setDirectores(String directores) {
+        this.directores = directores;
+    }
+    
 
    
     

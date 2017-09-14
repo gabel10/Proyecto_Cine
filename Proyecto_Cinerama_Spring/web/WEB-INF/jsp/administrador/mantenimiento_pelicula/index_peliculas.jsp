@@ -62,7 +62,7 @@
                                                 <td>${dato.get("genero")}</td>
                                                 <td>
                                                     <a id="${dato.get("_id")}"type="button" class="btn btn-warning" onclick="fnEditar(this)">Editar</a>
-                                                    <a id="${dato.get("_id")}" type="button" class="btn btn-info" onclick="fnverDetalles(this)">Ver Detalles</a>
+                                                    <!--<a id="${dato.get("_id")}" type="button" class="btn btn-info" onclick="fnverDetalles(this)">Ver Detalles</a> -->
                                                 </td>
                                             </tr>
                                         </c:forEach>

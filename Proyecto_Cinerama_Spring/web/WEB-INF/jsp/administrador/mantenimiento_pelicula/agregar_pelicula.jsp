@@ -32,7 +32,7 @@
           }
         </style>        
     </head>
-    <body>
+    <body onload="cargar_formulario_imagenes()">
         <div id="wrapper">
             <jsp:include page="../header_menu.jsp"/>
             <div id="page-wrapper">
@@ -77,7 +77,12 @@
                                                 <label>
                                                     <input id="animacion" type="checkbox" onchange="actualizar_genero()">Animación
                                                 </label>
-                                            </div>                                       
+                                            </div>    
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input id="accion" type="checkbox" onchange="actualizar_genero()">Acción
+                                                </label>
+                                            </div>  
                                         </div>
                                         <div>
                                             <input id="genero" type="text" name="genero"style="display:none;">                                                
@@ -109,14 +114,24 @@
                                             <label>Sinopsis</label>
                                             <textarea id="sinopsis" class="form-control" rows="3" name="sinopsis"></textarea>
                                         </div>  
+                                        <div class="form-group">
+                                            <label>Actores</label>
+                                            <textarea id="actores" class="form-control" rows="3" name="actores"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Directores</label>
+                                            <textarea id="directores" class="form-control" rows="3" name="directores"></textarea>
+                                        </div>
                                     </div>
                                     
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <a type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modal_index_imagenes" onclick="cargar_lista_imagenes()">Elegir Poster de Pelicula</a><br><br>   
                                               <div id="imagen" class="movie_image" height="">
-                                                  
-                                              </div>
+                                                  <label id="nombre_imagen_label"></label><br>
+                                                  <img id="poster_imagen" style ="width: 280px; height: 400px">                                          
+                                              </div>    
+                                              <input id="nombre_poster" type="text" name="nombre_poster" style="display:none;">       
                                         </div>                       
                                     </div>    
                                     <div class="col-lg-12">
@@ -172,34 +187,14 @@
                 
               </div>
               <div class="modal-body">  
-                  <form id="formulario_imagen" method="post" enctype="multipart/form-data" >
-                    <div class="row">
-                        <div class="col-lg-8" id="lista-imagenes" style="height: 370px; overflow: auto">
-                            <label>Lista Imagenes</label>
-                            <div id="imagenes_tabla" class="row">
-                                 
-                            </div>
-                        </div>
-                        <div class="col-lg-4" style="border-left: 1px; border-left-style: dotted; border-color: gray; height: 370px">
-                            <div id="div_file" >
-                                <p id="texto">Abrir Imagen</p>
-                                <input type="file" id="btn_abrir_imagen_previa" name="archivo" onchange="readImagen(this)">
-                            </div>
-                            <br>
-                            
-                            <img id="imagen_previa" height="250"><br><br>
-                            <label id="nombre_imagen_previa"></label><br>
-                            <div id="resultado"></div>
-                            <button class="btn btn-primary" onclick="subir_imagen()">Subir Imagen</button>
-                        </div>
-                    </div>
-                    
-                </form>
+                  <div id ="contenedor">
+                      
+                  </div>
               </div>             
               <div class="modal-footer">
                  <div class="form-group">                    
-                    <input  class="btn btn-success btn-md" type="submit" value="Aceptar" ></input> 
-                    <button type="button" class="btn btn-danger btn-md" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success btn-md" data-dismiss="modal">Cerrar</button>
+                    
                  </div>
               </div>
             </div>
@@ -208,7 +203,25 @@
         </div>
 
         <script>
-            
+            function obtener_nombre_imagen(imagen){
+                var nombre = document.getElementById("nombre_imagen_label");
+                nombre.innerHTML = imagen.value;
+                var img = document.getElementById("poster_imagen");
+                img.src = "mostrar_imagen.htm?imagen="+imagen.value;
+                var input_poster = document.getElementById("nombre_poster");
+                input_poster.value = imagen.value;
+            }
+            function cargar_formulario_imagenes(){
+                $.ajax({
+                  url: "agregar_imagen.htm",
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: function (result) {
+                    $("#contenedor").html(result);
+                  }
+                });  
+            }
             function cargar_lista_imagenes(){
                 $(document).ready(function(e){
                     $(".img-check").click(function(){
@@ -223,6 +236,7 @@
                   processData: false,
                   success: function (result) {
                     $("#imagenes_tabla").html(result);
+                    
                   }
                 });     
             }
@@ -242,13 +256,14 @@
                       success: function (result) {
                         var nombre = document.getElementById("nombre_imagen_previa");
                         if(result == 'EXITO'){
-                            nombre.innerHTML = "Se Subio con exito la imagen";
-                            cargar_lista_imagenes()
-                            document.getElementById("btn_abrir_imagen_previa").value="";
+                            alert("Se guardo con exito");
+                            cargar_lista_imagenes();
+                            document.getElementById("contenedor").innerHTML="";
+                            cargar_formulario_imagenes();
                         }else{
                             nombre.innerHTML = "No se guardo imagen.";
                         }
-                        $("#btn_abrir_imagen_previa").reset();  
+                        $("#btn_abrir_imagen_previa").value = "";  
                       }
                     });
                     return true;

@@ -68,6 +68,9 @@ public class PeliculaController {
         pelicula.setDuracion(request.getParameter("duracion"));
         pelicula.setFecha_estreno(request.getParameter("fecha_estreno"));
         pelicula.setSinopsis(request.getParameter("sinopsis"));
+        pelicula.setActores(request.getParameter("actores"));
+        pelicula.setDirectores(request.getParameter("directores"));
+        pelicula.setImagen(request.getParameter("nombre_poster"));
         pelicula.Insertar();   
         v.addObject("datos",pelicula);
         v.setViewName("administrador/mantenimiento_pelicula/guardar_datos_pelicula");
@@ -87,6 +90,9 @@ public class PeliculaController {
         pelicula.setDuracion(request.getParameter("duracion"));
         pelicula.setFecha_estreno(request.getParameter("fecha_estreno"));
         pelicula.setSinopsis(request.getParameter("sinopsis"));
+        pelicula.setActores(request.getParameter("actores"));
+        pelicula.setDirectores(request.getParameter("directores"));
+        pelicula.setImagen(request.getParameter("nombre_poster"));
         pelicula.Actualizar();
         v.addObject("datos",pelicula);
         v.setViewName("administrador/mantenimiento_pelicula/modificar_datos_pelicula");

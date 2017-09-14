@@ -102,4 +102,11 @@ public class ImagenController {
         v.setViewName("administrador/mantenimiento_imagenes/lista_imagenes");
         return v;
     }
+    
+    @RequestMapping("agregar_imagen.htm")
+    public ModelAndView agregar_imagen(HttpServletRequest request)throws ParseException, IOException{
+        ModelAndView v = new ModelAndView();
+        v.setViewName("administrador/mantenimiento_imagenes/agregar_imagen");
+        return v;
+    }
 }

@@ -65,6 +65,7 @@
                 <prop key="procesar_subida_imagen.htm">imagenController</prop>
                 <prop key="mostrar_imagen.htm">imagenController</prop>
                 <prop key="lista_imagenes.htm">imagenController</prop>
+                <prop key="agregar_imagen.htm">imagenController</prop>
                 
             </props>
         </property>

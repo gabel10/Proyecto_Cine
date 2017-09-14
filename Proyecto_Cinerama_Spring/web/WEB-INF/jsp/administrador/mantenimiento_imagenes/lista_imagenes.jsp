@@ -13,8 +13,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
     </head>
     <body>
         
@@ -28,9 +26,10 @@
                     String imagen = d.getString("filename");
             %>
             <div class="col-lg-4">
-                <label class=" btn btn-default"width="170" ><%=imagen%><br>
-                    <img  src="mostrar_imagen.htm?imagen=<%=imagen%>" class="img-thumbnail img-check" height="250" width="170" alt="...">
-                    <input type="checkbox" name="name_pelicula" id="<%=imagen%>" value="<%=cont%>" class="hidden" autocomplete="off">
+                
+                <label class=" btn btn-default"width="170" >
+                    <input type="radio" name="nombre_imagen" id="1" value="<%=imagen%>" onclick="obtener_nombre_imagen(this)"><%=imagen%><br>
+                    <img  src="mostrar_imagen.htm?imagen=<%=imagen%>" class="img-thumbnail img-check" height="250" width="170" alt="..." >                    
                 </label><br><br>
         </div>
         <%
