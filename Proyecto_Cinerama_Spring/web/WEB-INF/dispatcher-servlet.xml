@@ -59,17 +59,25 @@
                 <prop key="guardar_datos_funcion.htm">funcionController</prop>
                 <prop key="modificar_datos_funcion.htm">funcionController</prop>
                 
-                <!-- Reserva -->
+                <!-- Reserva 
                 <prop key="single.htm">reservaController</prop>
                 <prop key="cantbutacas.htm">reservaController</prop>
                 <prop key="reservarbutacas.htm">reservaController</prop>
-                <prop key="confirmacion_reserva.htm">reservaController</prop>
+                <prop key="confirmacion_reserva.htm">reservaController</prop>-->
                 
                 <!-- Imagen -->
                 <prop key="procesar_subida_imagen.htm">imagenController</prop>
                 <prop key="mostrar_imagen.htm">imagenController</prop>
+                <prop key="mostrar_imagen_por_id.htm">imagenController</prop>
                 <prop key="lista_imagenes.htm">imagenController</prop>
                 <prop key="agregar_imagen.htm">imagenController</prop>
+                <!-- Cartelera-->
+                <prop key="agregar_cartelera.htm">carteleraController</prop>
+                <prop key="index_cartelera.htm">carteleraController</prop>
+                <prop key="modificar_cartelera.htm">carteleraController</prop>
+                <prop key="guardar_datos_cartelera.htm">carteleraController</prop>
+                <prop key="modificar_datos_cartelera.htm">carteleraController</prop>
+                <prop key="cartelera.htm">carteleraController</prop>
                 
             </props>
         </property>
@@ -87,9 +95,11 @@
     <bean name="usuarioController" class="controllers.UsuarioController"/>
     <bean name="peliculaController" class="controllers.PeliculaController"/>
     <bean name="salaController" class="controllers.SalaController"/>
-    <bean name="reservaController" class="controllers.ReservaController"/>
+    <!--<bean name="reservaController" class="controllers.ReservaController"/>-->
     <bean name="funcionController" class="controllers.FuncionController"/>
     <bean name="imagenController" class="controllers.ImagenController"/>
+    <bean name="carteleraController" class="controllers.CarteleraController"/>
+    
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />

@@ -29,31 +29,34 @@ public class Funcion extends Conexion{
     private final MongoClient cliente = crearConexion();
     private final MongoDatabase database = cliente.getDatabase("dbcinerama");
     protected final MongoCollection<Document> collection = database.getCollection("funciones");
-    
     private String id;
+    private String id_cartelera;
     private String horario;
-    private String id_pelicula;
-    private String id_sala;
+    private String nro_sala;
+    private String butacas_ocupadas;
+    
 
     public Funcion() {
     }
 
-    public Funcion(String horario, String id_pelicula, String id_sala) {
+    public Funcion(String id_cartelera, String horario, String nro_sala, String butacas_ocupadas) {
+        this.id_cartelera = id_cartelera;
         this.horario = horario;
-        this.id_pelicula = id_pelicula;
-        this.id_sala = id_sala;
+        this.nro_sala = nro_sala;
+        this.butacas_ocupadas = butacas_ocupadas;
     }
-    
+   
     public void Insertar(){
         
         Document datos = new Document();
-        Object id_funcion = getNextSequence("funcionid");
+        Object id_funcion = getNextSequence("cont_funcion");
         this.setId(id_funcion.toString());       
         
         datos.append("_id", this.getId());
+        datos.append("id_cartelera", this.getId_cartelera());
         datos.append("horario", this.getHorario());
-        datos.append("id_pelicula", this.getId_pelicula());
-        datos.append("id_sala", this.getId_sala());
+        datos.append("nro_sala", this.getNro_sala());
+        datos.append("butacas_ocupadas", this.getButacas_ocupadas());
         
         
         try{
@@ -66,10 +69,10 @@ public class Funcion extends Conexion{
     public void Actualizar(){
         Document datos = new Document();              
         datos.append("_id", this.getId());
+        datos.append("id_cartelera", this.getId_cartelera());
         datos.append("horario", this.getHorario());
-        datos.append("id_pelicula", this.getId_pelicula());
-        datos.append("id_sala", this.getId_sala());
-
+        datos.append("nro_sala", this.getNro_sala());
+        datos.append("butacas_ocupadas", this.getButacas_ocupadas());
         
         BasicDBObject query = new BasicDBObject();
         query.append("_id", this.getId());
@@ -80,13 +83,13 @@ public class Funcion extends Conexion{
         }     
     }
     
-    public Document getFuncion(String id){
+    public Document getFuncion(String id_cartelera, String horario){
         Document funcion = null;
         List<Document> documentos= this.getListaFunciones();
         //pelicula = documentos.get(0);
         for(int i = 0;i<documentos.size();i++){
             Document p = documentos.get(i);
-            if(p.get("_id").toString().equals(id)){
+            if(p.get("id_cartelera").toString().equals(id_cartelera) && p.get("horario").equals(horario)){
                 return p;
             }
             
@@ -98,43 +101,58 @@ public class Funcion extends Conexion{
         List<Document> documentos = (List<Document>) collection.find().into(
 				new ArrayList<Document>());
         return documentos;
+    }    
+
+    public MongoClient getCliente() {
+        return cliente;
+    }
+
+    public MongoDatabase getDatabase() {
+        return database;
+    }
+
+    public MongoCollection<Document> getCollection() {
+        return collection;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getId_cartelera() {
+        return id_cartelera;
     }
 
     public String getHorario() {
         return horario;
     }
 
+    public String getNro_sala() {
+        return nro_sala;
+    }
+
+    public String getButacas_ocupadas() {
+        return butacas_ocupadas;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setId_cartelera(String id_cartelera) {
+        this.id_cartelera = id_cartelera;
+    }
+
     public void setHorario(String horario) {
         this.horario = horario;
     }
 
-    public String getId_pelicula() {
-        return id_pelicula;
+    public void setNro_sala(String nro_sala) {
+        this.nro_sala = nro_sala;
     }
 
-    public void setId_pelicula(String id_pelicula) {
-        this.id_pelicula = id_pelicula;
+    public void setButacas_ocupadas(String butacas_ocupadas) {
+        this.butacas_ocupadas = butacas_ocupadas;
     }
-
-    public String getId_sala() {
-        return id_sala;
-    }
-
-    public void setId_sala(String id_sala) {
-        this.id_sala = id_sala;
-    }
-  
-    
-   
-    
-    
     
 }

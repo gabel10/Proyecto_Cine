@@ -96,6 +96,29 @@ public class ImagenController {
         return null;
     }
     
+    @RequestMapping("mostrar_imagen_por_id.htm")
+    public ModelAndView mostrar_imagen_por_id(HttpServletRequest request,HttpServletResponse response)throws ParseException, IOException{
+        String id_imagen = request.getParameter("id_imagen").toString();
+        
+        
+        
+        Document pelicula = new Pelicula().getPelicula(id_imagen);
+        String nomArchivo = pelicula.get("nombre_imagen").toString();
+        OutputStream salida = response.getOutputStream();
+
+        MongoClient miCliente = new MongoClient("127.0.0.1", 27017);
+        MongoDatabase baseDatos = miCliente.getDatabase("dbcinerama");
+        GridFSBucket gridFSBucket = GridFSBuckets.create(baseDatos, "imagenes");
+
+        gridFSBucket.downloadToStream(nomArchivo, salida);
+
+        response.setContentType("image/jpg");
+
+        salida.flush();
+        salida.close();
+        return null;
+    }
+    
     @RequestMapping("lista_imagenes.htm")
     public ModelAndView lista_imagenes(HttpServletRequest request)throws ParseException, IOException{
         ModelAndView v = new ModelAndView();

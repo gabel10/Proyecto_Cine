@@ -32,7 +32,7 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul id="menu-nav" class="nav navbar-nav">
-                                    <li id="cartelera"><a href="#">Cartelera <span class="sr-only">(current)</span></a></li>
+                                    <li id="cartelera"><a href="cartelera.htm">Cartelera <span class="sr-only">(current)</span></a></li>
                                     <li id="estrenos"><a href="#">Próximos Estrenos</a></li>
                                     <li id="cines"><a href="#">Cines</a></li>
                                     <li id="contactanos"><a href="contactanos.htm">Contáctanos</a></li>

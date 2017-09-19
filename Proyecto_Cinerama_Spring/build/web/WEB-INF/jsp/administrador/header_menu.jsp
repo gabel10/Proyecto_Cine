@@ -60,6 +60,9 @@
                     <li>
                         <a href="index_peliculas.htm">Peliculas</a>
                     </li>
+                     <li>
+                        <a href="index_cartelera.htm">Cartelera</a>
+                    </li>
                 </ul>
             </li>
         </ul>
