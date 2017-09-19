@@ -87,12 +87,12 @@ public class ReservaController {
         f.setId_cartelera(funcion.get("id_cartelera").toString());
         f.setHorario(funcion.get("horario").toString());
         f.setNro_sala(funcion.get("nro_sala").toString());
-        String butacasocupadas = "";
+        String butacasocupadas = funcion.get("butacas_ocupadas").toString();
         if(funcion.get("butacas_ocupadas").toString().length()>0){
             butacasocupadas = butacasocupadas+","+butacas;
         }
         else{
-            butacasocupadas = butacas;
+            butacasocupadas = butacasocupadas+butacas;
 
         }
         f.setButacas_ocupadas(butacasocupadas);

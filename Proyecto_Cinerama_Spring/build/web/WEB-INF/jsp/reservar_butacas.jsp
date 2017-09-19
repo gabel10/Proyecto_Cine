@@ -328,11 +328,7 @@
             }
             
             function fnReservar(){
-                var ocu = document.getElementById("butacas_ocupadas").value;
-                var selec =document.getElementById("butacas_seleccionadas").value;
-                if(ocu != ""){
-                    document.getElementById("butacas_seleccionadas").value = ocu+","+selec;
-                }
+                
                 $('#formulario').submit();
 
 
