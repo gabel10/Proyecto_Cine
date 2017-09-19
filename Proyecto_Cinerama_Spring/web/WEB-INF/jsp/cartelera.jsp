@@ -86,7 +86,7 @@
                                                              <c:forEach items="${horarios}" var="horario">
                                                                 <c:if test="${ca.get("_id") == horario.get("id_cartelera")}" >
                                                                     <div class="col-lg-3"style="height: 60px">                                                                
-                                                                        <a href="reservar.htm?id_funcion=${horario.get("_id")} & id_pelicula=${ca.get("id_pelicula")} &nro_sala=${horario.get("nro_sala")}" class="btn btn-warning btn-lg" >${horario.get("horario")}</a>                                                                
+                                                                        <a href="reservar_cantidad_butacas.htm?idpelicula=${ca.get("id_pelicula")}&idfuncion=${horario.get("_id")}&nro_sala=${horario.get("nro_sala")}" class="btn btn-warning btn-lg" >${horario.get("horario")}</a>                                                                
                                                                     </div>
                                                                </c:if>  
                                                             </c:forEach>

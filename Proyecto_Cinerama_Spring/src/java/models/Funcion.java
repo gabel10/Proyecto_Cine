@@ -97,6 +97,21 @@ public class Funcion extends Conexion{
         return funcion;
     }
     
+    public Document getFuncionId(String id_funcion){
+        Document funcion = null;
+        List<Document> documentos= this.getListaFunciones();
+        //pelicula = documentos.get(0);
+        for(int i = 0;i<documentos.size();i++){
+            Document p = documentos.get(i);
+            if(p.get("_id").toString().equals(id_funcion)){
+                return p;
+            }
+            
+        }
+        return funcion;
+    }
+    
+    
     public List<Document> getListaFunciones(){
         List<Document> documentos = (List<Document>) collection.find().into(
 				new ArrayList<Document>());

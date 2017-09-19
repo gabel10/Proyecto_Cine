@@ -23,6 +23,7 @@ public class Sala extends Conexion {
     private String butacas;
     private String cant_butacas;
 
+  
     public Sala(String id, String filas, String columnas, String butacas, String cant_butacas) {
         this.id = id;
         this.filas = filas;
