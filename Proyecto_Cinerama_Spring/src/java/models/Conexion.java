@@ -40,7 +40,8 @@ public class Conexion {
         MongoClient mongoClient = new MongoClient();
         DB database = mongoClient.getDB("dbcinerama");
         countersCollection = database.getCollection("counters");
-        if (countersCollection.count() == 0) {
+        DBObject objeto = countersCollection.findOne(name);
+        if (objeto == null) {
             createCountersCollection(name);
         }        
         BasicDBObject searchQuery = new BasicDBObject("_id", name);
