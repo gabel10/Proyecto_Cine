@@ -69,8 +69,8 @@
                              </div>
                         </div>
                         <div class="col-xs-12 col-md-9 login-left">
-                            <br><br>
-                            <div class="form-group">
+                            
+                            <div class="form-group" style="display:none;">
                                 <input class="" placeholder="" id="filas" name="filas" value="${sala.get("filas")}" style="display:none;"><br>
                                 <input class="" placeholder="" id="columnas" name="columnas" value="${sala.get("columnas")}" style="display:none;">
                             </div>
@@ -88,9 +88,9 @@
                                 </div>
                                 <div>
                                     <input id="butacas" type="text" name="butacas"style="display:none;" value="${sala.get("butacas")}">    
-                                    <input id="butacas_ocupadas" type="text" name="butacas"style="" value="${funcion.get("butacas_ocupadas")}">
+                                    <input id="butacas_ocupadas" type="text" name="butacas"style="display:none;" value="${funcion.get("butacas_ocupadas")}">
                                     
-                                    <form id="formulario" method="GET" action="confirmar_reserva.htm">
+                                    <form id="formulario" method="GET" action="confirmar_reserva.htm" style="display:none;">
                                         <input id="id_funcion" name="id_funcion" type="text" name="butacas"style="" value="${funcion.get("_id")}" >  
                                         <input id="id_pelicula" name="id_pelicula" type="text" name="butacas"style="" value="${pelicula.get("_id")}" >  
                                         <input id="butacas_seleccionadas" name="butacas_seleccionadas" type="text" name="butacas"style="" >  
